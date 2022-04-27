@@ -5,7 +5,7 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define("Event", {
     id: {
-      type: DataTypes.UUID,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
     },
@@ -15,11 +15,11 @@ module.exports = (sequelize) => {
     },
     description: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
     performers: {
       type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: false,
+      // allowNull: false,
     },
     imagen: {
       type: DataTypes.STRING,
