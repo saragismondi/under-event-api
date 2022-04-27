@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
 //hola soy sara 
+//y yo soy seba y tomas
 require('./db.js');
 
 const server = express();
