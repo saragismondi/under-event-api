@@ -18,7 +18,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     performers: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
+      type: DataTypes.STRING,
       allowNull: false,
     },
     imagen: {
