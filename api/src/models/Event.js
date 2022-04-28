@@ -5,7 +5,8 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define("Event", {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
+      defaulValue: DataTypes.UUIDV4,
       allowNull: false,
       primaryKey: true,
     },
