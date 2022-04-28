@@ -7,7 +7,7 @@ const getAllEvent = async (req, res) => {
   );
   const result = api.data.events.map((e) => {
     return {
-      id: e.id,
+     
       title: e.venue.name,
       imagen: e.performers[0].image,
     };

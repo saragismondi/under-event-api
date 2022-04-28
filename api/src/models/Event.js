@@ -6,10 +6,11 @@ module.exports = (sequelize) => {
   sequelize.define("Event", {
     id: {
       type: DataTypes.UUID,
-      defaulValue: DataTypes.UUIDV4,
+      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
       primaryKey: true,
     },
+
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -27,7 +28,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     date: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.STRING,
     },
     time: {
       type: DataTypes.STRING,
