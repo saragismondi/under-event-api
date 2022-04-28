@@ -1,5 +1,7 @@
 const axios = require("axios");
 const { Event } = require("../db");
+const User = require("../models/User");
+const { Sequelize } = require("sequelize");
 
 const getAllEvent = async (req, res) => {
   const api = await axios.get(
@@ -47,7 +49,35 @@ const postEvent = async (req, res) => {
   }
 };
 
+
+const getByTitle = async (req, res) => {
+  let { title } = req.query;
+  console.log(title)
+
+  try {
+    let eventName = await Event.findAll({
+      where: {
+        title: { [Sequelize.Op.iLike]: `%${title}%` },
+      },
+/*       include: {
+        model: User,
+        attributes: ["name", "lastName", "email", "password", "roll"],
+        through: { attributes: [] },
+      }, */
+    });
+    if (!eventName[0]) {
+      return res.json({ msj: "ERROR, evento no encontrado" });
+    }
+    res.json(
+      eventName,
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   getAllEvent,
   postEvent,
+  getByTitle
 };
