@@ -23,7 +23,33 @@ const getAllEvent = async (req, res) => {
     res.json({ msg: "Eventos Cargados", cargadb });
   }
 };
+const postEvent = async (req, res) => {
+  const { id, title, description, imagen, performers, date, time, stock } = req.body;
+    
+  if ( !id, !title || !description || !imagen || !performers || !date || !time || !stock) {
+    return res.status(404).json({ msg: "Info are required" })}
+  else{
+    try {
+      const newEvent = await Event.create({
+        id,
+        title,
+        description,
+        imagen,
+        performers,
+        date,
+        time,
+        stock,
+      });
+      //let id_user = await User.findAll({ where: { name: user } });
+      //await newEvent.addUser(id_user);
+      res.json({ msg: " Evento Creado" });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+};
 
 module.exports = {
   getAllEvent,
+  postEvent,
 };
