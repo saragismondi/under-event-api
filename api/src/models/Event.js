@@ -36,5 +36,11 @@ module.exports = (sequelize) => {
     stock: {
       type: DataTypes.INTEGER,
     },
+    eventType: {
+      type: DataTypes.STRING,
+    },
+    eventTime: {
+      type: DataTypes.STRING,
+    }
   });
 };
