@@ -75,9 +75,32 @@ const getByTitle = async (req, res) => {
     console.log(error);
   }
 };
+const getIdDb = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const db = await Event.findByPk(id, 
+      
+      
+    //   {
+    //   include: {
+    //     model: User,
+    //     attributes: ["name", "lastname", "email", "password", "rol"],
+    //     trough: { attributes: [] },
+    //   },
+    // }
+    
+    
+    
+    );
+    res.json(db );
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 module.exports = {
   getAllEvent,
   postEvent,
-  getByTitle
+  getByTitle,
+  getIdDb,
 };
