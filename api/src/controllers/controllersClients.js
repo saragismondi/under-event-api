@@ -26,14 +26,14 @@ const getAllEvent = async (req, res) => {
   }
 };
 const postEvent = async (req, res) => {
-  const {  title, description, imagen, performers, date, time, stock } = req.body;
+  const {  title, description, imagen, performers, date, time, stock, eventType, eventTime } = req.body;
     
-  if ( !title || !description || !imagen || !performers || !date || !time || !stock) {
+  if ( !title || !description || !imagen  || !date || !time || !stock ) {
     return res.status(404).json({ msg: "Info are required" })}
   else{
     try {
       const newEvent = await Event.create({
-     
+        
         title,
         description,
         imagen,
@@ -41,6 +41,8 @@ const postEvent = async (req, res) => {
         date,
         time,
         stock,
+        eventType,
+        eventTime
       });
       //let id_user = await User.findAll({ where: { name: user } });
       //await newEvent.addUser(id_user);
