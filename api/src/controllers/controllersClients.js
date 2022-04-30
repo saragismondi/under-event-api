@@ -9,11 +9,10 @@ const getAllEvent = async (req, res) => {
   );
   const result = api.data.events.map((e) => {
     return {
-      
       title: e.venue.name,
       imagen: e.performers[0].image,
       eventType: e.type,
-      eventTime: e.datetime_utc
+      time: e.datetime_utc,
     };
   });
 
@@ -26,14 +25,22 @@ const getAllEvent = async (req, res) => {
   }
 };
 const postEvent = async (req, res) => {
-  const {  title, description, imagen, performers, date, time, stock, eventType, eventTime } = req.body;
-    
-  if ( !title || !description || !imagen  || !date || !time || !stock ) {
-    return res.status(404).json({ msg: "Info are required" })}
-  else{
+  const {
+    title,
+    description,
+    imagen,
+    performers,
+    date,
+    time,
+    stock,
+    eventType,
+  } = req.body;
+
+  if (!title || !description || !imagen || !date || !time || !stock) {
+    return res.status(404).json({ msg: "Info are required" });
+  } else {
     try {
       const newEvent = await Event.create({
-        
         title,
         description,
         imagen,
@@ -42,7 +49,6 @@ const postEvent = async (req, res) => {
         time,
         stock,
         eventType,
-        eventTime
       });
       //let id_user = await User.findAll({ where: { name: user } });
       //await newEvent.addUser(id_user);
@@ -53,50 +59,79 @@ const postEvent = async (req, res) => {
   }
 };
 
-
 const getByTitle = async (req, res) => {
   let { title } = req.query;
-  console.log(title)
+  let { time } = req.query;
+  let { eventType } = req.query;
 
-  try {
-    let eventName = await Event.findAll({
-      where: {
-        title: { [Sequelize.Op.iLike]: `%${title}%` },
-      },
-/*       include: {
+  if (title)
+    try {
+      let eventName = await Event.findAll({
+        where: {
+          title: { [Sequelize.Op.iLike]: `%${title}%` },
+        },
+        /*       include: {
         model: User,
         attributes: ["name", "lastName", "email", "password", "roll"],
         through: { attributes: [] },
       }, */
-    });
-    if (!eventName[0]) {
-      return res.json({ msj: "ERROR, evento no encontrado" });
+      });
+      return res.json(eventName);
+    } catch (error) {
+      console.log(error);
     }
-    res.json(
-      eventName,
-    );
-  } catch (error) {
-    console.log(error);
+  else if (time) {
+    try {
+      let eventTime = await Event.findAll({
+        where: {
+          time: { [Sequelize.Op.iLike]: `%${time}%` },
+        },
+        // include: {
+        //   model: User,
+        //   attributes: ["name", "lastName", "email", "password", "roll"],
+        //   through: { attributes: [] },
+        // },
+      });
+      return res.json(eventTime);
+    } catch (error) {
+      console.log(error);
+    }
+  } else if (eventType) {
+    try {
+      let type = await Event.findAll({
+        where: {
+          eventType: { [Sequelize.Op.iLike]: `%${eventType}%` },
+        },
+        //include: {
+        //   model: User,
+        //   attributes: ["name", "lastName", "email", "password", "roll"],
+        //   through: { attributes: [] },
+        // },
+      });
+      return res.json(type);
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    res.status(404).json({ msj: "ERROR, evento no encontrado" });
   }
 };
+
 const getIdDb = async (req, res) => {
   const { id } = req.params;
   try {
-    const db = await Event.findByPk(id, 
-      
-      
-    //   {
-    //   include: {
-    //     model: User,
-    //     attributes: ["name", "lastname", "email", "password", "rol"],
-    //     trough: { attributes: [] },
-    //   },
-    // }
-    
-    
-    
+    const db = await Event.findByPk(
+      id
+
+      //   {
+      //   include: {
+      //     model: User,
+      //     attributes: ["name", "lastname", "email", "password", "rol"],
+      //     trough: { attributes: [] },
+      //   },
+      // }
     );
-    res.json(db );
+    res.json(db);
   } catch (error) {
     console.log(error);
   }

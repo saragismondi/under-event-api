@@ -39,8 +39,5 @@ module.exports = (sequelize) => {
     eventType: {
       type: DataTypes.STRING,
     },
-    eventTime: {
-      type: DataTypes.STRING,
-    }
   });
 };
