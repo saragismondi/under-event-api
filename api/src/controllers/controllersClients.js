@@ -12,7 +12,9 @@ const getAllEvent = async (req, res) => {
       title: e.venue.name,
       imagen: e.performers[0].image,
       eventType: e.type,
-      time: e.datetime_utc,
+      date: e.announce_date.split("", 10).join(""),
+      time: e.datetime_local.split('T').pop()
+      
     };
   });
 
