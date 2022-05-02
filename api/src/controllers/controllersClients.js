@@ -33,11 +33,12 @@ const postEvent = async (req, res) => {
     title,
     description,
     imagen,
-    performers,
+    
     date,
     time,
     stock,
     eventType,
+    place
   } = req.body;
 
   if (!title || !description || !imagen || !date || !time || !stock) {
@@ -48,11 +49,12 @@ const postEvent = async (req, res) => {
         title,
         description,
         imagen,
-        performers,
+        
         date,
         time,
         stock,
         eventType,
+        place
       });
       //let id_user = await User.findAll({ where: { name: user } });
       //await newEvent.addUser(id_user);
