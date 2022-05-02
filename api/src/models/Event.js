@@ -10,10 +10,15 @@ module.exports = (sequelize) => {
       allowNull: false,
       primaryKey: true,
     },
+    place:{
+      type: DataTypes.STRING,
+     
+    },
+    
 
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
+     
     },
     description: {
       type: DataTypes.STRING,
@@ -23,9 +28,14 @@ module.exports = (sequelize) => {
       type: DataTypes.ARRAY(DataTypes.STRING),
       // allowNull: false,
     },
+
+    state:{
+      type: DataTypes.STRING,
+      
+    },
     imagen: {
       type: DataTypes.STRING,
-      allowNull: false,
+      
     },
     date: {
       type: DataTypes.DATEONLY,
