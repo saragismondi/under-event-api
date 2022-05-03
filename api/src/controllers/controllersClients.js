@@ -2,43 +2,47 @@ const axios = require("axios");
 const { Event } = require("../db");
 const User = require("../models/User");
 const { Sequelize } = require("sequelize");
+const json = require("../data/data.json");
 
 const getAllEvent = async (req, res) => {
-  const api = await axios.get(
-    "https://api.seatgeek.com/2/events?client_id=MjY2MjczMDh8MTY1MDM2NjAwNS4zNjUxNTQ3"
-  );
-  const result = api.data.events.map((e) => {
-    return {
-      place: e.venue.name,
-      imagen: e.performers[0].image,
-      eventType: e.type,
-      date: e.announce_date.split("", 10).join(""),
-      time: e.datetime_local.split('T').pop(),
-      state: e.venue.state,
-      title: e.title
-      
-    };
-  });
+  try {
+    const result = json.map((e) => {
+      return {
+        title: e.title,
+        imagen: e.imagen,
+        city: e.city,
+        place: e.place,
+        description: e.description,
+        genero: e.genero,
+        date: e.date,
+        time: e.time,
+        stock: e.stock,
+      };
+    });
 
-  const db = await Event.findAll();
-  if (db.length > 0) {
-    return res.json(db);
-  } else {
-    const cargadb = await Event.bulkCreate(result);
-    res.json({ msg: "Eventos Cargados", cargadb });
+    const db = await Event.findAll();
+    if (db.length > 0) {
+      return res.json(db);
+    } else {
+      const cargadb = await Event.bulkCreate(result);
+      res.json({ msg: "Eventos Cargados", cargadb });
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
+
 const postEvent = async (req, res) => {
   const {
     title,
     description,
     imagen,
-    
     date,
     time,
     stock,
     eventType,
-    place
+    place,
+    User,
   } = req.body;
 
   if (!title || !description || !imagen || !date || !time || !stock) {
@@ -49,12 +53,11 @@ const postEvent = async (req, res) => {
         title,
         description,
         imagen,
-        
         date,
         time,
         stock,
         eventType,
-        place
+        place,
       });
       //let id_user = await User.findAll({ where: { name: user } });
       //await newEvent.addUser(id_user);
@@ -70,7 +73,7 @@ const getByTitle = async (req, res) => {
   let { state } = req.query;
   let { eventType } = req.query;
   let { date } = req.query;
- 
+
   if (title)
     try {
       let eventName = await Event.findAll({
@@ -115,33 +118,29 @@ const getByTitle = async (req, res) => {
         //   through: { attributes: [] },
         // },
       });
-      
+
       return res.json(type);
     } catch (error) {
       console.log(error);
     }
-    
-    
   } else {
-    return res.status(404).json({msg: "error not found"})
+    return res.status(404).json({ msg: "error not found" });
   }
-  }
-  
+};
 
-  const getByState = async (req, res) => {
-    let {state} = req.query
+const getByState = async (req, res) => {
+  let { state } = req.query;
 
-    if(state){
-      try {
-        let newState = await Event.findAll(state)
+  if (state) {
+    try {
+      let newState = await Event.findAll(state);
 
-        res.send(newState)
-      } catch (error) {
-        console.log(error)
-      }
+      res.send(newState);
+    } catch (error) {
+      console.log(error);
     }
   }
-
+};
 
 const getIdDb = async (req, res) => {
   const { id } = req.params;
@@ -168,5 +167,5 @@ module.exports = {
   postEvent,
   getByTitle,
   getIdDb,
-  getByState
+  getByState,
 };
