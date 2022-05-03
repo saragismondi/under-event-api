@@ -12,10 +12,7 @@ module.exports = (sequelize) => {
     },
     place:{
       type: DataTypes.STRING,
-     
     },
-    
-
     title: {
       type: DataTypes.STRING,
      
@@ -28,10 +25,8 @@ module.exports = (sequelize) => {
       type: DataTypes.ARRAY(DataTypes.STRING),
       // allowNull: false,
     },
-
     state:{
       type: DataTypes.STRING,
-      
     },
     imagen: {
       type: DataTypes.STRING,
