@@ -72,9 +72,8 @@ const postEvent = async (req, res) => {
 
 const getByTitle = async (req, res) => {
   let { title } = req.query;
-  let { state } = req.query;
-  let { eventType } = req.query;
-  let { date } = req.query;
+  let { genero} = req.query;
+  let { city } = req.query;
 
   if (title)
     try {
@@ -92,11 +91,11 @@ const getByTitle = async (req, res) => {
     } catch (error) {
       console.log(error);
     }
-  else if (state) {
+  else if (genero) {
     try {
-      let eventState = await Event.findAll({
+      let genres = await Event.findAll({
         where: {
-          state: { [Sequelize.Op.iLike]: `%${state}%` },
+          genero: { [Sequelize.Op.iLike]: `%${genero}%` },
         },
         // include: {
         //   model: User,
@@ -104,28 +103,31 @@ const getByTitle = async (req, res) => {
         //   through: { attributes: [] },
         // },
       });
-      return res.json(eventState);
+      return res.json(genres);
     } catch (error) {
       console.log(error);
     }
-  } else if (eventType) {
+    
+  } else if (city) {
     try {
-      let type = await Event.findAll({
+      let ciudad = await Event.findAll({
         where: {
-          eventType: { [Sequelize.Op.iLike]: `%${eventType}%` },
+          city: { [Sequelize.Op.iLike]: `%${city}%` },
         },
-        //include: {
+        // include: {
         //   model: User,
         //   attributes: ["name", "lastName", "email", "password", "roll"],
         //   through: { attributes: [] },
         // },
       });
-
-      return res.json(type);
+      return res.json(ciudad);
     } catch (error) {
       console.log(error);
     }
-  } else {
+    
+  } 
+  else {
+
     return res.status(404).json({ msg: "error not found" });
   }
 };
