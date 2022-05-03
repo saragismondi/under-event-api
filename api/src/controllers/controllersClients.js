@@ -17,6 +17,8 @@ const getAllEvent = async (req, res) => {
         date: e.date,
         time: e.time,
         stock: e.stock,
+        cost: e.cost,
+        month: e.month,
       };
     });
 
@@ -43,10 +45,12 @@ const postEvent = async (req, res) => {
     date,
     time,
     stock,
+    cost,
+    month,
     User,
   } = req.body;
 
-  if (!title || !description || !imagen || !date || !time || !stock) {
+  if (!title || !description || !imagen || !date || !time || !stock ||!cost || !month) {
     return res.status(404).json({ msg: "Info are required" });
   } else {
     try {
@@ -60,6 +64,8 @@ const postEvent = async (req, res) => {
         date,
         time,
         stock,
+        cost,
+        month,
       });
       //let id_user = await User.findAll({ where: { name: user } });
       //await newEvent.addUser(id_user);
@@ -74,6 +80,8 @@ const getByTitle = async (req, res) => {
   let { title } = req.query;
   let { genero} = req.query;
   let { city } = req.query;
+  let {cost}= req.query;
+  let {month} = req.query;
 
   if (title)
     try {
@@ -108,7 +116,41 @@ const getByTitle = async (req, res) => {
       console.log(error);
     }
     
-  } else if (city) {
+  } else if (cost) {
+    try {
+      let precio = await Event.findAll({
+        where: {
+          cost: { [Sequelize.Op.iLike]: `%${cost}%` },
+        },
+        // include: {
+        //   model: User,
+        //   attributes: ["name", "lastName", "email", "password", "roll"],
+        //   through: { attributes: [] },
+        // },
+      });
+      return res.json(precio);
+    } catch (error) {
+      console.log(error);
+    }
+    
+  } else if (month) {
+    try {
+      let mes = await Event.findAll({
+        where: {
+          month: { [Sequelize.Op.iLike]: `%${month}%` },
+        },
+        // include: {
+        //   model: User,
+        //   attributes: ["name", "lastName", "email", "password", "roll"],
+        //   through: { attributes: [] },
+        // },
+      });
+      return res.json(mes);
+    } catch (error) {
+      console.log(error);
+    }
+    
+  } else if  (city) {
     try {
       let ciudad = await Event.findAll({
         where: {

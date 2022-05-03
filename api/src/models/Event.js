@@ -41,5 +41,11 @@ module.exports = (sequelize) => {
     stock: {
       type: DataTypes.INTEGER,
     },
+    cost: {
+      type: DataTypes.STRING,
+    },
+    month: {
+      type: DataTypes.STRING,
+    },
   });
 };
