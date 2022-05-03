@@ -10,27 +10,27 @@ module.exports = (sequelize) => {
       allowNull: false,
       primaryKey: true,
     },
-    place:{
-      type: DataTypes.STRING,
-    },
     title: {
       type: DataTypes.STRING,
-     
     },
-    description: {
-      type: DataTypes.STRING,
-      // allowNull: false,
-    },
-    performers: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      // allowNull: false,
-    },
-    state:{
-      type: DataTypes.STRING,
-    },
+
     imagen: {
+      type: DataTypes.STRING(1000),
+    },
+    city: {
       type: DataTypes.STRING,
-      
+      // allowNull: false,
+    },
+    place: {
+      type: DataTypes.STRING,
+      // allowNull: false,
+    },
+
+    description: {
+      type: DataTypes.STRING(1000),
+    },
+    genero: {
+      type: DataTypes.STRING,
     },
     date: {
       type: DataTypes.STRING,
@@ -40,9 +40,6 @@ module.exports = (sequelize) => {
     },
     stock: {
       type: DataTypes.INTEGER,
-    },
-    eventType: {
-      type: DataTypes.STRING,
     },
   });
 };

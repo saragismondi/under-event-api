@@ -1,135 +1,134 @@
- [{
-     "title": "Los Piojos",
-     "imagen" : "https://cdn.domestika.org/c_limit,dpr_auto,f_auto,q_auto,w_820/v1540502490/content-items/002/574/713/poster-anna-original.jpg?1540502490",
-     "city":      "Buenos Aires",
-     "place" : "Centro cultural Luis Rojas",
-    "description" : "Los piojos festejan el día de la independencia con un super evento que se realizará en el centro Culrural Luis Rojas de la ciudad de Buenos Aires, que estara dispuesto para pocas personas, para que el evento sea mas intimo e interactivo.",
-    "genero":    "Rock Nacional",
-    "date" : [ "22-04-2022", "23-04-2022",  "24-04-2022" ],
-    "time" :  "23:00 ",
-    "stock" : "100"
-    },
-    {
-        "title": "La Renga",
-        "imagen" : "https://resizer.glanacion.com/resizer/zp3wrQcrE1DWambgFVZ-_P025iA=/1200x746/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/FJC4KTOFHRHSTJU2IYTVIUWBJ4.jpg",
-        "city":      "Buenos Aires",
-        "place" : "La chacra rock",
-        "description" : "En esta oportunidad se presentan los rockeros para mostrar su nuevo disco (Sangre y Poder) y esperan festejar con su publico el nuevo año, se ofreceran autografos y habra fotografia gratis para todos los que asistan al evento.",
-        "genero":    "Rock Nacional",
-        "date" : [ "2-05-2022", "3-05-2022",  "4-05-2022" ],
-        "time" :  "21:00 ",
-        "stock" : "200"
-    },
-    {
-        "title": "Bulldog",
-        "imagen" : "https://scontent.frcu1-1.fna.fbcdn.net/v/t39.30808-6/250631293_450629936429210_5663647340254743360_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=e3f864&_nc_ohc=X__5MQa-mXIAX-3SL5g&_nc_ht=scontent.frcu1-1.fna&oh=00_AT-9BbUATqM8n-8xUSpqVZJX_jDiObZ8NiKveBIWgIK2ag&oe=627661F8",
-        "city":      "Buenos Aires",
-        "place" : "Palermo Groove",
-        "description" : "En Palermo se reuniran los rockeros a recordar sus ultimas canciones populares, habra tragos, cervezas artesanales y filmaran todo el eventos para la realizacion de posteriores videoclips",
-        "genero":    "Rock Nacional",
-        "date" : [ "11-05-2022", "13-05-2022",  "24-05-2022" ],
-        "time" :  "19:00",
-        "stock" : "80"
-    }, 
-    {
-        "title": "Masacre",
-        "imagen" : "https://www.cmtv.com.ar/imagenes_noticias/0775306001593731402.jpg?Massacre&Recordamos%20momentos%20junto%20a%20la%20banda%20a%20lo%20largo%20de%20su%20carrera.jpg",
-        "city":      "Buenos Aires",
-        "place" : "La cajita musical",
-        "description" : "En esta oportunidad se presentan los rockeros para mostrar su nuevo disco (Sangre y Poder) y esperan festejar con su publico el nuevo año, se ofreceran autografos y habra fotografia gratis para todos los que asistan al evento.",
-        "genero":    "Rock Nacional",
-        "date" : [ "2-07-2022", "3-07-2022",  "4-07-2022" ],
-        "time" :  "19.00",
-        "stock" : "80"
-    },
-    {
-        "title": "Miranda",
-        "imagen" : "https://www.cmtv.com.ar/imagenes_noticias/0775306001593731402.jpg?Massacre&Recordamos%20momentos%20junto%20a%20la%20banda%20a%20lo%20largo%20de%20su%20carrera.jpg",
-        "city":      "Cordoba Capital",
-        "place" : "Club Paraguay",
-        "description" : "El mejor eventos de musica pop-under para disfrutar con tus amigues, por la tarde estaremos en club paraguay acercandonos a nuestros fans y por la noche disfrutaremos de una fiesta de puro pop nacional.",
-        "genero":    "Pop",
-        "date" : [ "17-07-2022", "18-07-2022" ],
-        "time" :  "18.00",
-        "stock" : "100"
-    },
-    {
-        "title": "Gondwana",
-        "imagen" : "https://lavozinternacional.net/web/wp-content/uploads/2020/08/GONDWANA-2020-Carre%C3%B1o-Prensa-768x519.jpeg",
-        "city":      "Cordoba Capital",
-        "place" : "Espacio quality",
-        "description" : "Luego de tocar en México como número estelar del Festival Xtremo junto a Moby, Stephen Marley, Underworld y La Maldita Vecindad, la legendaria banda chilena de reggae volverá a encontrarse con su público de Cordoba",
-        "genero":    "Reggae",
-        "date" : [ "24-08-2022" ],
-        "time" :  "22.00",
-        "stock" : "70"
-    },
-    {
-        "title": "Karamelo Santo",
-        "imagen" : "https://christianmanzanelli.com.ar/wp-content/uploads/2020/04/karamelo-santo-contrataciones-christian-manzanelli-representante-art%C3%ADstico-3-500x400.jpg",
-        "city":      "Cordoba Capital",
-        "place" : "Espacio XXL",
-        "description" : "Karamelo Santo es una banda argentina de rock al estilo fusión, liderada y fundada por Goy, pionera en la mezcla de otros estilos como punk, folclore, cumbia, ska y reggae en Latinoamérica, formada oficialmente en 1993 en la ciudad de Mendoza, a pesar de que los primeros trabajos de ideas y ensayos se plasmaron con una agrupación previa llamada con el nombre de Perfectos Idiotas desde 1987, con influencias y ensayos en México, Argentina y Chile.",
-        "genero":    "Ska",
-        "date" : [ "12-12-2022" ],
-        "time" :  "22:30",
-        "stock" : "250"
-    },
-     {
-        "title": "Barak",
-        "imagen": "https://pbs.twimg.com/profile_images/626583752102187008/5jHc1a4v_400x400.jpg",
-        "city": "Buenos Aires",
-        "place": "Tecnopolis",
-        "description": "Será un día histórico donde podremos disfrutar de todos los éxitos y vivir la presentación oficial de Fuego y Poder, su última producción. Con un coro de más de 30 voces de líderes de Argentina.",
-        "genero": "Urbano latino",
-        "date": ["27-04-2022", "28-04-2022", "29-04-2022"],
-        "time": "16:30",
-        "stock": "80"
-      },
-      {
-        "title": "NONPALIDECE",
-        "imagen": "https://www.cmtv.com.ar/tapas-cd/0269357001633107236.jpg",
-        "city": "Buenos Aires",
-        "place": "Estadio Obras Sanitarias",
-        "description": "Vuelve el reggae a Obras de la mano de una de las bandas más representativas del género en Latinoamérica.",
-        "genero": "Reggae",
-        "date": ["10-06-2022", "11-06-2022", "12-06-2022"],
-        "time": "21:00",
-        "stock": "150"
-      },
-      {
-        "title": "REGGAE COMBATIVO",
-        "imagen": "https://yt3.ggpht.com/ytc/AKedOLQ21rOplw0d2hNVMXHlj0oCYwwQcDIkrY3u-oZ2Zg=s900-c-k-c0x00ffffff-no-rj",
-        "city": "Mar del Plata",
-        "place": " Espacio Cultural Belgrano",
-        "description": "La banda de Luis Alfa vuelve al mar del plata en una noche de puro reggae combativo.",
-        "genero": "Reggae",
-        "date": ["24-06-2022", "25-06-2022"],
-        "time": "20:00",
-        "stock": "50"
-      },
-      {
-        "title": "No te va a gustar",
-        "imagen": "https://images.sk-static.com/images/media/profile_images/artists/162578/huge_avatar",
-        "city": "Cordoba",
-        "place": "La Cantera Multiespacio",
-        "description": "Vuelve el Rock de la mano de una de las bandas más representativas del género en Latinoamérica.",
-        "genero": "Rock",
-        "date": ["05-08-2022", "06-08-2022"],
-        "time": "21:00",
-        "stock": "200"
-      },
-      {
-        "title": "La Bomba de Tiempo",
-        "imagen": "https://media-exp1.licdn.com/dms/image/C4E1BAQH1NSZZFN08Ew/company-background_10000/0/1560892221777?e=2147483647&v=beta&t=wVjnLWYvcVoNOCXCnOkKQz-Yisto6L-pbXdp7QYnf0o",
-        "city": "Buenos Aires",
-        "place": "Ciudad Cultural Konex",
-        "description": "La Bomba de Tiempo es un grupo de percusión que practica la improvisación con señas. Los conciertos son únicos e irrepetibles ya que su música se va generando en cada show a través del diálogo entre los músicos y el director, quien mediante un sistema de más de 90 señas realizadas con las manos dirige la improvisación.",
-        "genero": "Pop",
-        "date": ["09-09-2022", "10-09-2022", "11-09-2022"],
-        "time": "20:00",
-        "stock": "90"
-      }
-        
+[
+  {
+    "title": "Los Piojos",
+    "imagen": "https://cdn.domestika.org/c_limit,dpr_auto,f_auto,q_auto,w_820/v1540502490/content-items/002/574/713/poster-anna-original.jpg?1540502490",
+    "city": "Buenos Aires",
+    "place": "Centro cultural Luis Rojas",
+    "description": "Los piojos festejan el día de la independencia con un super evento que se realizará en el centro Culrural Luis Rojas de la ciudad de Buenos Aires, que estara dispuesto para pocas personas, para que el evento sea mas intimo e interactivo.",
+    "genero": "Rock Nacional",
+    "date": ["22-04-2022", "23-04-2022", "24-04-2022"],
+    "time": "23:00 ",
+    "stock": 100
+  },
+  {
+    "title": "La Renga",
+    "imagen": "https://resizer.glanacion.com/resizer/zp3wrQcrE1DWambgFVZ-_P025iA=/1200x746/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/FJC4KTOFHRHSTJU2IYTVIUWBJ4.jpg",
+    "city": "Buenos Aires",
+    "place": "La chacra rock",
+    "description": "En esta oportunidad se presentan los rockeros para mostrar su nuevo disco (Sangre y Poder) y esperan festejar con su publico el nuevo año, se ofreceran autografos y habra fotografia gratis para todos los que asistan al evento.",
+    "genero": "Rock Nacional",
+    "date": ["2-05-2022", "3-05-2022", "4-05-2022"],
+    "time": "21:00 ",
+    "stock": 200
+  },
+  {
+    "title": "Bulldog",
+    "imagen": "https://scontent.frcu1-1.fna.fbcdn.net/v/t39.30808-6/250631293_450629936429210_5663647340254743360_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=e3f864&_nc_ohc=X__5MQa-mXIAX-3SL5g&_nc_ht=scontent.frcu1-1.fna&oh=00_AT-9BbUATqM8n-8xUSpqVZJX_jDiObZ8NiKveBIWgIK2ag&oe=627661F8",
+    "city": "Buenos Aires",
+    "place": "Palermo Groove",
+    "description": "En Palermo se reuniran los rockeros a recordar sus ultimas canciones populares, habra tragos, cervezas artesanales y filmaran todo el eventos para la realizacion de posteriores videoclips",
+    "genero": "Rock Nacional",
+    "date": ["11-05-2022", "13-05-2022", "24-05-2022"],
+    "time": "19:00",
+    "stock": 80
+  },
+  {
+    "title": "Masacre",
+    "imagen": "https://www.cmtv.com.ar/imagenes_noticias/0775306001593731402.jpg?Massacre&Recordamos%20momentos%20junto%20a%20la%20banda%20a%20lo%20largo%20de%20su%20carrera.jpg",
+    "city": "Buenos Aires",
+    "place": "La cajita musical",
+    "description": "En esta oportunidad se presentan los rockeros para mostrar su nuevo disco (Sangre y Poder) y esperan festejar con su publico el nuevo año, se ofreceran autografos y habra fotografia gratis para todos los que asistan al evento.",
+    "genero": "Rock Nacional",
+    "date": ["2-07-2022", "3-07-2022", "4-07-2022"],
+    "time": "19.00",
+    "stock": 80
+  },
+  {
+    "title": "Miranda",
+    "imagen": "https://www.cmtv.com.ar/imagenes_noticias/0775306001593731402.jpg?Massacre&Recordamos%20momentos%20junto%20a%20la%20banda%20a%20lo%20largo%20de%20su%20carrera.jpg",
+    "city": "Cordoba Capital",
+    "place": "Club Paraguay",
+    "description": "El mejor eventos de musica pop-under para disfrutar con tus amigues, por la tarde estaremos en club paraguay acercandonos a nuestros fans y por la noche disfrutaremos de una fiesta de puro pop nacional.",
+    "genero": "Pop",
+    "date": ["17-07-2022", "18-07-2022"],
+    "time": "18.00",
+    "stock": 100
+  },
+  {
+    "title": "Gondwana",
+    "imagen": "https://lavozinternacional.net/web/wp-content/uploads/2020/08/GONDWANA-2020-Carre%C3%B1o-Prensa-768x519.jpeg",
+    "city": "Cordoba Capital",
+    "place": "Espacio quality",
+    "description": "Luego de tocar en México como número estelar del Festival Xtremo junto a Moby, Stephen Marley, Underworld y La Maldita Vecindad, la legendaria banda chilena de reggae volverá a encontrarse con su público de Cordoba",
+    "genero": "Reggae",
+    "date": ["24-08-2022"],
+    "time": "22.00",
+    "stock": 70
+  },
+  {
+    "title": "Karamelo Santo",
+    "imagen": "https://christianmanzanelli.com.ar/wp-content/uploads/2020/04/karamelo-santo-contrataciones-christian-manzanelli-representante-art%C3%ADstico-3-500x400.jpg",
+    "city": "Cordoba Capital",
+    "place": "Espacio XXL",
+    "description": "Karamelo Santo es una banda argentina de rock al estilo fusión, liderada y fundada por Goy, pionera en la mezcla de otros estilos como punk, folclore, cumbia, ska y reggae en Latinoamérica, formada oficialmente en 1993 en la ciudad de Mendoza, a pesar de que los primeros trabajos de ideas y ensayos se plasmaron con una agrupación previa llamada con el nombre de Perfectos Idiotas desde 1987, con influencias y ensayos en México, Argentina y Chile.",
+    "genero": "Ska",
+    "date": ["12-12-2022"],
+    "time": "22:30",
+    "stock": 250
+  },
+  {
+    "title": "Barak",
+    "imagen": "https://pbs.twimg.com/profile_images/626583752102187008/5jHc1a4v_400x400.jpg",
+    "city": "Buenos Aires",
+    "place": "Tecnopolis",
+    "description": "Será un día histórico donde podremos disfrutar de todos los éxitos y vivir la presentación oficial de Fuego y Poder, su última producción. Con un coro de más de 30 voces de líderes de Argentina.",
+    "genero": "Urbano latino",
+    "date": ["27-04-2022", "28-04-2022", "29-04-2022"],
+    "time": "16:30",
+    "stock": 80
+  },
+  {
+    "title": "NONPALIDECE",
+    "imagen": "https://www.cmtv.com.ar/tapas-cd/0269357001633107236.jpg",
+    "city": "Buenos Aires",
+    "place": "Estadio Obras Sanitarias",
+    "description": "Vuelve el reggae a Obras de la mano de una de las bandas más representativas del género en Latinoamérica.",
+    "genero": "Reggae",
+    "date": ["10-06-2022", "11-06-2022", "12-06-2022"],
+    "time": "21:00",
+    "stock": 150
+  },
+  {
+    "title": "REGGAE COMBATIVO",
+    "imagen": "https://yt3.ggpht.com/ytc/AKedOLQ21rOplw0d2hNVMXHlj0oCYwwQcDIkrY3u-oZ2Zg=s900-c-k-c0x00ffffff-no-rj",
+    "city": "Mar del Plata",
+    "place": " Espacio Cultural Belgrano",
+    "description": "La banda de Luis Alfa vuelve al mar del plata en una noche de puro reggae combativo.",
+    "genero": "Reggae",
+    "date": ["24-06-2022", "25-06-2022"],
+    "time": "20:00",
+    "stock": 50
+  },
+  {
+    "title": "No te va a gustar",
+    "imagen": "https://images.sk-static.com/images/media/profile_images/artists/162578/huge_avatar",
+    "city": "Cordoba",
+    "place": "La Cantera Multiespacio",
+    "description": "Vuelve el Rock de la mano de una de las bandas más representativas del género en Latinoamérica.",
+    "genero": "Rock",
+    "date": ["05-08-2022", "06-08-2022"],
+    "time": "21:00",
+    "stock": 200
+  },
+  {
+    "title": "La Bomba de Tiempo",
+    "imagen": "https://media-exp1.licdn.com/dms/image/C4E1BAQH1NSZZFN08Ew/company-background_10000/0/1560892221777?e=2147483647&v=beta&t=wVjnLWYvcVoNOCXCnOkKQz-Yisto6L-pbXdp7QYnf0o",
+    "city": "Buenos Aires",
+    "place": "Ciudad Cultural Konex",
+    "description": "La Bomba de Tiempo es un grupo de percusión que practica la improvisación con señas. Los conciertos son únicos e irrepetibles ya que su música se va generando en cada show a través del diálogo entre los músicos y el director, quien mediante un sistema de más de 90 señas realizadas con las manos dirige la improvisación.",
+    "genero": "Pop",
+    "date": ["09-09-2022", "10-09-2022", "11-09-2022"],
+    "time": "20:00",
+    "stock": 90
+  }
 ]
-    
