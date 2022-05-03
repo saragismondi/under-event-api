@@ -1,14 +1,16 @@
 [
   {
     "title": "Los Piojos",
-    "imagen": "https://cdn.domestika.org/c_limit,dpr_auto,f_auto,q_auto,w_820/v1540502490/content-items/002/574/713/poster-anna-original.jpg?1540502490",
+    "imagen": "https://cdn.ciudad.com.ar/sites/default/files/styles/grizzly_galeria/public/files_drupal_6/2011/11/10/los_piojos_separacion.jpg?itok=tc2Zg0-8",
     "city": "Buenos Aires",
     "place": "Centro cultural Luis Rojas",
     "description": "Los piojos festejan el día de la independencia con un super evento que se realizará en el centro Culrural Luis Rojas de la ciudad de Buenos Aires, que estara dispuesto para pocas personas, para que el evento sea mas intimo e interactivo.",
     "genero": "Rock Nacional",
     "date": ["22-04-2022", "23-04-2022", "24-04-2022"],
     "time": "23:00 ",
-    "stock": 100
+    "stock": 100,
+    "cost": "2.200",
+    "month": "Junio"
   },
   {
     "title": "La Renga",
@@ -19,7 +21,9 @@
     "genero": "Rock Nacional",
     "date": ["2-05-2022", "3-05-2022", "4-05-2022"],
     "time": "21:00 ",
-    "stock": 200
+    "stock": 200,
+    "cost": "2.800",
+    "month": "Mayo"
   },
   {
     "title": "Bulldog",
@@ -30,7 +34,9 @@
     "genero": "Rock Nacional",
     "date": ["11-05-2022", "13-05-2022", "24-05-2022"],
     "time": "19:00",
-    "stock": 80
+    "stock": 80,
+    "cost": "3.200",
+    "month": "Mayo"
   },
   {
     "title": "Masacre",
@@ -41,7 +47,9 @@
     "genero": "Rock Nacional",
     "date": ["2-07-2022", "3-07-2022", "4-07-2022"],
     "time": "19.00",
-    "stock": 80
+    "stock": 80,
+    "cost": "2.550",
+    "month": "Julio"
   },
   {
     "title": "Miranda",
@@ -52,7 +60,9 @@
     "genero": "Pop",
     "date": ["17-07-2022", "18-07-2022"],
     "time": "18.00",
-    "stock": 100
+    "stock": 100,
+    "cost": "1.450",
+    "month": "Julio"
   },
   {
     "title": "Gondwana",
@@ -63,7 +73,9 @@
     "genero": "Reggae",
     "date": ["24-08-2022"],
     "time": "22.00",
-    "stock": 70
+    "stock": 70,
+    "cost": "3.100",
+    "month": "Agosto"
   },
   {
     "title": "Karamelo Santo",
@@ -74,7 +86,9 @@
     "genero": "Ska",
     "date": ["12-12-2022"],
     "time": "22:30",
-    "stock": 250
+    "stock": 250,
+    "cost": "3.250",
+    "month": "Diciembre"
   },
   {
     "title": "Barak",
@@ -85,7 +99,9 @@
     "genero": "Urbano latino",
     "date": ["27-04-2022", "28-04-2022", "29-04-2022"],
     "time": "16:30",
-    "stock": 80
+    "stock": 80,
+    "cost": "3.250",
+    "month": "Abril"
   },
   {
     "title": "NONPALIDECE",
@@ -96,7 +112,9 @@
     "genero": "Reggae",
     "date": ["10-06-2022", "11-06-2022", "12-06-2022"],
     "time": "21:00",
-    "stock": 150
+    "stock": 150,
+    "cost": "2.650",
+    "month": "Junio"
   },
   {
     "title": "REGGAE COMBATIVO",
@@ -107,7 +125,9 @@
     "genero": "Reggae",
     "date": ["24-06-2022", "25-06-2022"],
     "time": "20:00",
-    "stock": 50
+    "stock": 50,
+    "cost": "3.750",
+    "month": "Junio"
   },
   {
     "title": "No te va a gustar",
@@ -118,7 +138,9 @@
     "genero": "Rock",
     "date": ["05-08-2022", "06-08-2022"],
     "time": "21:00",
-    "stock": 200
+    "stock": 200,
+    "cost": "4.200",
+    "month": "Agosto"
   },
   {
     "title": "La Bomba de Tiempo",
@@ -129,6 +151,8 @@
     "genero": "Pop",
     "date": ["09-09-2022", "10-09-2022", "11-09-2022"],
     "time": "20:00",
-    "stock": 90
+    "stock": 90,
+    "cost": "2.850",
+    "month": "Noviembre"
   }
 ]
