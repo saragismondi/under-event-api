@@ -33,7 +33,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
     },
     date: {
-      type: DataTypes.STRING,
+      type: DataTypes.ARRAY(DataTypes.STRING),
     },
     time: {
       type: DataTypes.STRING,

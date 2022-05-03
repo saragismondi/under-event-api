@@ -35,13 +35,14 @@ const getAllEvent = async (req, res) => {
 const postEvent = async (req, res) => {
   const {
     title,
-    description,
     imagen,
+    city,
+    place,
+    description,
+    genero,
     date,
     time,
     stock,
-    eventType,
-    place,
     User,
   } = req.body;
 
@@ -51,13 +52,14 @@ const postEvent = async (req, res) => {
     try {
       const newEvent = await Event.create({
         title,
-        description,
         imagen,
+        city,
+        place,
+        description,
+        genero,
         date,
         time,
         stock,
-        eventType,
-        place,
       });
       //let id_user = await User.findAll({ where: { name: user } });
       //await newEvent.addUser(id_user);
