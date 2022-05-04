@@ -34,6 +34,19 @@ const getAllEvent = async (req, res) => {
   }
 };
 
+const solocitys = async (req, res) => {
+  try {
+    const db = await Event.findAll({
+      attributes : ["city"]
+    })
+    return res.send(db)
+  }
+  catch (error) {
+    console.log(error)
+  }
+
+}
+
 const postEvent = async (req, res) => {
   const {
     title,
@@ -266,5 +279,9 @@ module.exports = {
   getByTitle,
   getIdDb,
   getByState,
+
   putEvent,
+
+  solocitys
+
 };
