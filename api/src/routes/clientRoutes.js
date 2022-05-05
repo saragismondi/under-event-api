@@ -1,13 +1,13 @@
 const { Router } = require("express");
-const { getAllEvent, postEvent, getByTitle, getIdDb, getByState, solocitys } = require("../controllers/controllersClients");
+const { postEvent, getByTitle, getIdDb, getByState, solocitys, getEventsDb  } = require("../controllers/controllersClients");
 
 const router = Router();
 
-router.get("/getAll", getAllEvent);
+router.get("/getAll", getEventsDb);
+router.get("/solocitys",solocitys)
 router.post("/createEvent", postEvent);
 router.get("/getTitle", getByTitle);
 router.get("/getStates", getByState);
 router.get("/:id", getIdDb);
-router.get("/getCities",solocitys)
 
 module.exports = router;
