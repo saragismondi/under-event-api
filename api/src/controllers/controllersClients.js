@@ -21,6 +21,10 @@ const getAllEvent = async () => {
         stock: e.stock,
         cost: e.cost,
         month: e.month,
+        lat: e.lat,
+        long: e.long,
+        address: e.address,
+        location: e.location,
       };
     });
 
@@ -84,18 +88,25 @@ const postEvent = async (req, res) => {
     stock,
     cost,
     month,
+    address,
+    location,
     User,
   } = req.body;
 
   if (
     !title ||
-    !description ||
     !imagen ||
+    !city ||
+    !place ||
+    !description ||
+    !genero ||
     !date ||
     !time ||
     !stock ||
     !cost ||
-    !month
+    !month ||
+    !address ||
+    !location
   ) {
     return res.status(404).json({ msg: "Info are required" });
   } else {
@@ -112,6 +123,8 @@ const postEvent = async (req, res) => {
         stock,
         cost,
         month,
+        address,
+        location,
       });
       //let id_user = await User.findAll({ where: { name: user } });
       //await newEvent.addUser(id_user);
@@ -263,6 +276,8 @@ const putEvent = async (req, res) => {
       stock,
       cost,
       month,
+      address,
+      location,
     } = req.body;
     const db = await Event.findByPk(id)
     //console.log(req.body.title)
@@ -278,6 +293,8 @@ const putEvent = async (req, res) => {
     if (stock) db.stock = stock
     if (cost) db.cost = cost
     if (month) db.month = month
+    if (address) db.address = address
+    if (location) db.location = location
 
     await db.save();
     res.json(db);
