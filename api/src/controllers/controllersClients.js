@@ -4,6 +4,7 @@ const User = require("../models/User");
 const { Sequelize, Op } = require("sequelize");
 const data = require("../data/data.json");
 
+
 //ESTA FUNCION SE UTILIZA UNICAMENTE CUANDO SE INICIA EL SERVIDOR
 const getAllEvent = async () => {
   try {
