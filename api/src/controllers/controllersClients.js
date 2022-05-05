@@ -58,6 +58,19 @@ const solocitys = async (req, res) => {
   }
 };
 
+//FUNCION QUE ME TRAE TODAS LOS GENEROS SIN REPETIRSE
+const soloGeneros = async (req, res) => {
+  try {
+    const db = await Event.findAll();
+    var allGeneros = db.map(e => e.dataValues.genero);
+    var setGeneros = [...new Set(allGeneros)];
+    // console.log(setCitys);
+    return res.send(setGeneros);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const postEvent = async (req, res) => {
   const {
     title,
@@ -240,4 +253,5 @@ module.exports = {
   getIdDb,
   getByState,
   solocitys,
+  soloGeneros
 };
