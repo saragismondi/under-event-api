@@ -1,5 +1,9 @@
 const { Router } = require("express");
-const { postEvent, getByTitle, getIdDb, getByState, solocitys, getEventsDb  } = require("../controllers/controllersClients");
+
+const { putEvent, getAllEvent,postEvent, getByTitle, getIdDb, getByState, solocitys, getEventsDb  } = require("../controllers/controllersClients");
+
+
+
 
 const router = Router();
 
@@ -9,5 +13,10 @@ router.post("/createEvent", postEvent);
 router.get("/getTitle", getByTitle);
 router.get("/getStates", getByState);
 router.get("/:id", getIdDb);
+
+
+router.put("/putEvent/:id", putEvent);
+
+
 
 module.exports = router;
