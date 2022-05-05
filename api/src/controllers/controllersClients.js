@@ -1,8 +1,9 @@
 const axios = require("axios");
 const { Event } = require("../db");
 const User = require("../models/User");
-const { Sequelize } = require("sequelize");
+const { Sequelize, Op } = require("sequelize");
 const data = require("../data/data.json");
+
 
 //ESTA FUNCION SE UTILIZA UNICAMENTE CUANDO SE INICIA EL SERVIDOR
 const getAllEvent = async () => {
@@ -61,7 +62,7 @@ const solocitys = async (req, res) => {
 const soloGeneros = async (req, res) => {
   try {
     const db = await Event.findAll();
-    var allGeneros = db.map(e => e.dataValues.genero);
+    var allGeneros = db.map((e) => e.dataValues.genero);
     var setGeneros = [...new Set(allGeneros)];
     // console.log(setCitys);
     return res.send(setGeneros);
@@ -263,34 +264,46 @@ const putEvent = async (req, res) => {
       cost,
       month,
     } = req.body;
-    const db = await Event.findByPk(id);
+    const db = await Event.findByPk(id)
+    //console.log(req.body.title)
 
-    if (title !== undefined) {
-      db.title = title;
-    } else if (imagen !== undefined) {
-      db.imagen = imagen;
-    } else if (city !== undefined) {
-      db.city = city;
-    } else if (place !== undefined) {
-      db.place = place;
-    } else if (description !== undefined) {
-      db.description = description;
-    } else if (genero !== undefined) {
-      db.genero = genero;
-    } else if (date !== undefined) {
-      db.date = date;
-    } else if (time !== undefined) {
-      db.time = time;
-    } else if (stock !== undefined) {
-      db.stock = stock;
-    } else if (cost !== undefined) {
-      db.cost = cost;
-    } else if (month !== undefined) {
-      db.month = month;
-    }
-    res.send.status(404).json({ msg: "no hubo actualizacion" });
+    if (title) db.title = title
+    if (imagen) db.imagen = imagen
+    if (city) db.city = city
+    if (place) db.place = place
+    if (description) db.description = description
+    if (genero) db.genero = genero
+    if (date) db.date = date
+    if (time) db.time = time
+    if (stock) db.stock = stock
+    if (cost) db.cost = cost
+    if (month) db.month = month
+
     await db.save();
     res.json(db);
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({ msg: "no hubo actualizacion" });
+  }
+};
+const datesEvent = async (req, res) => {
+  try {
+    const eventosDate = await Event.findAll();
+    const datesFiltrado = eventosDate.map((e) => e.date)
+
+    //console.log(eventosDate, "hol soy EVENTOS DATE")
+    res.json(datesFiltrado);
+  } catch (error) {
+    console.log(error);
+  }
+};
+const getEventsByDate = async (req, res) => {
+  const { date } = req.params;
+  console.log(req.params.date)
+  try {
+    const eventosPorFecha = await Event.findAll()
+    const eventosFiltrados = eventosPorFecha.filter((e) => e.date === date)
+    res.json(eventosFiltrados);
   } catch (error) {
     console.log(error);
   }
@@ -306,4 +319,6 @@ module.exports = {
   solocitys,
   soloGeneros,
   putEvent,
+  datesEvent,
+  getEventsByDate,
 };
