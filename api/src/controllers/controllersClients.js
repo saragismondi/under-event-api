@@ -87,7 +87,16 @@ const postEvent = async (req, res) => {
     User,
   } = req.body;
 
-  if (!title || !description || !imagen || !date || !time || !stock ||!cost || !month) {
+  if (
+    !title ||
+    !description ||
+    !imagen ||
+    !date ||
+    !time ||
+    !stock ||
+    !cost ||
+    !month
+  ) {
     return res.status(404).json({ msg: "Info are required" });
   } else {
     try {
@@ -115,10 +124,10 @@ const postEvent = async (req, res) => {
 
 const getByTitle = async (req, res) => {
   let { title } = req.query;
-  let { genero} = req.query;
+  let { genero } = req.query;
   let { city } = req.query;
-  let {cost}= req.query;
-  let {month} = req.query;
+  let { cost } = req.query;
+  let { month } = req.query;
 
   if (title)
     try {
@@ -152,7 +161,6 @@ const getByTitle = async (req, res) => {
     } catch (error) {
       console.log(error);
     }
-    
   } else if (cost) {
     try {
       let precio = await Event.findAll({
@@ -169,7 +177,6 @@ const getByTitle = async (req, res) => {
     } catch (error) {
       console.log(error);
     }
-    
   } else if (month) {
     try {
       let mes = await Event.findAll({
@@ -186,8 +193,7 @@ const getByTitle = async (req, res) => {
     } catch (error) {
       console.log(error);
     }
-    
-  } else if  (city) {
+  } else if (city) {
     try {
       let ciudad = await Event.findAll({
         where: {
@@ -203,10 +209,7 @@ const getByTitle = async (req, res) => {
     } catch (error) {
       console.log(error);
     }
-    
-  } 
-  else {
-
+  } else {
     return res.status(404).json({ msg: "error not found" });
   }
 };
@@ -245,6 +248,55 @@ const getIdDb = async (req, res) => {
   }
 };
 
+const putEvent = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const {
+      title,
+      imagen,
+      city,
+      place,
+      description,
+      genero,
+      date,
+      time,
+      stock,
+      cost,
+      month,
+    } = req.body;
+    const db = await Event.findByPk(id);
+
+    if (title !== undefined) {
+      db.title = title;
+    } else if (imagen !== undefined) {
+      db.imagen = imagen;
+    } else if (city !== undefined) {
+      db.city = city;
+    } else if (place !== undefined) {
+      db.place = place;
+    } else if (description !== undefined) {
+      db.description = description;
+    } else if (genero !== undefined) {
+      db.genero = genero;
+    } else if (date !== undefined) {
+      db.date = date;
+    } else if (time !== undefined) {
+      db.time = time;
+    } else if (stock !== undefined) {
+      db.stock = stock;
+    } else if (cost !== undefined) {
+      db.cost = cost;
+    } else if (month !== undefined) {
+      db.month = month;
+    } 
+      res.send.status(404).json({ msg: "no hubo actualizacion" });
+    await db.save();
+    res.json(db);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   getAllEvent,
   getEventsDb,
@@ -253,5 +305,6 @@ module.exports = {
   getIdDb,
   getByState,
   solocitys,
-  soloGeneros
+  soloGeneros,
+  putEvent,
 };

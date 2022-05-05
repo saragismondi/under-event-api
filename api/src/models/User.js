@@ -6,8 +6,14 @@ module.exports = (sequelize) => {
   sequelize.define("User", {
     id: {
       type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
       primaryKey: true,
+    },
+    externalId: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
     },
     name: {
       type: DataTypes.STRING,
@@ -20,10 +26,7 @@ module.exports = (sequelize) => {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      unique: true,
     },
     roll: {
       type: DataTypes.ENUM("User", "Admin"),
