@@ -2,11 +2,13 @@ const axios = require("axios");
 const { Event } = require("../db");
 const User = require("../models/User");
 const { Sequelize } = require("sequelize");
-const json = require("../data/data.json");
+const data = require("../data/data.json");
 
-const getAllEvent = async (req, res) => {
+
+//ESTA FUNCION SE UTILIZA UNICAMENTE CUANDO SE INICIA EL SERVIDOR
+const getAllEvent = async () => {
   try {
-    const result = json.map((e) => {
+    const result = data.map((e) => {
       return {
         title: e.title,
         imagen: e.imagen,
@@ -22,30 +24,39 @@ const getAllEvent = async (req, res) => {
       };
     });
 
-    const db = await Event.findAll();
-    if (db.length > 0) {
-      return res.json(db);
-    } else {
-      const cargadb = await Event.bulkCreate(result);
-      res.json({ msg: "Eventos Cargados", cargadb });
-    }
+    const cargadb = await Event.bulkCreate(result);
+    // console.log(cargadb);
+    return cargadb;
   } catch (error) {
     console.log(error);
   }
 };
 
+//ESTA FUNCION NOS TRAE TODOS LOS EVENTOS DE LA DB, CUANDO QUERRAMOS PEGARLE A NUESTRO BACK
+const getEventsDb = async (req, res) => {
+  try {
+    const db = await Event.findAll();
+
+    if (db.length > 0) return res.send(db);
+
+    return res.json({ msg: "No hay eventos en nuestra base de datos" });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//FUNCION QUE ME TRAE TODAS LAS CIUDADES SIN REPETIRSE
 const solocitys = async (req, res) => {
   try {
-    const db = await Event.findAll({
-      attributes : ["city"]
-    })
-    return res.send(db)
+    const db = await Event.findAll();
+    var allCitys = db.map(e => e.dataValues.city);
+    var setCitys = [...new Set(allCitys)];
+    // console.log(setCitys);
+    return res.send(setCitys);
+  } catch (error) {
+    console.log(error);
   }
-  catch (error) {
-    console.log(error)
-  }
-
-}
+};
 
 const postEvent = async (req, res) => {
   const {
@@ -275,13 +286,11 @@ const putEvent = async (req, res) => {
 
 module.exports = {
   getAllEvent,
+  getEventsDb,
   postEvent,
   getByTitle,
   getIdDb,
   getByState,
-
+  solocitys,
   putEvent,
-
-  solocitys
-
 };
