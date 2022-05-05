@@ -4,7 +4,6 @@ const User = require("../models/User");
 const { Sequelize } = require("sequelize");
 const data = require("../data/data.json");
 
-
 //ESTA FUNCION SE UTILIZA UNICAMENTE CUANDO SE INICIA EL SERVIDOR
 const getAllEvent = async () => {
   try {
@@ -49,7 +48,7 @@ const getEventsDb = async (req, res) => {
 const solocitys = async (req, res) => {
   try {
     const db = await Event.findAll();
-    var allCitys = db.map(e => e.dataValues.city);
+    var allCitys = db.map((e) => e.dataValues.city);
     var setCitys = [...new Set(allCitys)];
     // console.log(setCitys);
     return res.send(setCitys);
@@ -275,8 +274,8 @@ const putEvent = async (req, res) => {
       db.cost = cost;
     } else if (month !== undefined) {
       db.month = month;
-    } 
-      res.send.status(404).json({ msg: "no hubo actualizacion" });
+    }
+    res.send.status(404).json({ msg: "no hubo actualizacion" });
     await db.save();
     res.json(db);
   } catch (error) {
