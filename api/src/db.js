@@ -2,12 +2,15 @@ require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const { DB_USER, DB_PASSWORD, DB_HOST, } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/events`, {
-  logging: false, // set to console.log to see the raw SQL queries
-  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-});
+const sequelize = new Sequelize(
+  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/events`,
+  {
+    logging: false, // set to console.log to see the raw SQL queries
+    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+  }
+);
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
@@ -34,13 +37,30 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Event, User } = sequelize.models;
+const { Event, User, Ticket, Order, OrderDetail } = sequelize.models;
 
 // Aca vendrian las relaciones
-// Product.hasMany(Reviews);
 
-User.belongsToMany(Event, { through: "user_event" });
-Event.belongsTo(User, { through: "user_event" });
+User.hasMany(Event);
+Event.belongsTo(User);
+
+User.hasMany(Ticket);
+Ticket.belongsTo(User);
+
+Event.hasMany(Ticket);
+Ticket.belongsTo(Event);
+
+User.hasMany(Order);
+Order.belongsTo(User);
+
+Order.belongsToMany(Event, { through: "order_event" });
+Event.belongsToMany(Order, { through: "order_event" });
+
+
+
+
+
+
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
