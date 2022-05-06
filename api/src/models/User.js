@@ -30,6 +30,19 @@ module.exports = (sequelize) => {
     },
     roll: {
       type: DataTypes.ENUM("User", "Admin"),
+      defaultValue: "User",
+    },
+    picture: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    city: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    state: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
   });
 };
