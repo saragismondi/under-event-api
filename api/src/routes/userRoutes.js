@@ -1,14 +1,9 @@
 const { Router } = require("express");
 
-
-//const { postUser } = require("../controllers/controllersUser");
-// const { addCart } = require("../controllers/carrito/addCart");
-
 const {
   postUser,
   getUser,
   updateUser,
-  
 } = require("../controllers/controllersUser");
 
 
