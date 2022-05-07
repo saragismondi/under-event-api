@@ -17,7 +17,7 @@
 //         where: {
 //           email: email,
 //         },
-//         attributes: ["externalId"],
+//         // attributes: ["externalId"],
 //       });
 //       const stateCart = await Order.findOne({
 //         where: {

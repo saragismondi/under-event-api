@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Event } = require("../db");
+const { Event, Ticket, Order } = require("../db");
 const User = require("../models/User");
 const { Sequelize, Op } = require("sequelize");
 const data = require("../data/data.json");
@@ -40,7 +40,7 @@ const getAllEvent = async () => {
 const getEventsDb = async (req, res) => {
   try {
     const db = await Event.findAll();
-
+       //console.log(db, "hola soy db ")
     if (db.length > 0) return res.send(db);
 
     return res.json({ msg: "No hay eventos en nuestra base de datos" });
@@ -90,7 +90,7 @@ const postEvent = async (req, res) => {
     month,
     address,
     location,
-    User,
+    userEmail,
   } = req.body;
 
   if (
@@ -106,7 +106,8 @@ const postEvent = async (req, res) => {
     !cost ||
     !month ||
     !address ||
-    !location
+    !location ||
+    !userEmail
   ) {
     return res.status(404).json({ msg: "Info are required" });
   } else {
@@ -126,14 +127,26 @@ const postEvent = async (req, res) => {
         address,
         location,
       });
-      //let id_user = await User.findAll({ where: { name: user } });
-      //await newEvent.addUser(id_user);
-      res.json({ msg: " Evento Creado" });
+    //   let id_user = await User.findAll({ where: { name: userEmail } });
+    //  await newEvent.addUser(id_user);
+
+      
+      let ticketArray = [];
+      for( var i = 0; i < stock; i++ ){
+        ticketArray.push({
+          status: "Disponible",
+        })
+      };
+       const tickets = await Ticket.bulkCreate(ticketArray);
+        await newEvent.addTicket(tickets);
+
+      res.json({ msg: " Evento Creado",  newEvent});
     } catch (error) {
       console.log(error);
     }
   }
 };
+
 
 const getByTitle = async (req, res) => {
   let { title } = req.query;
@@ -323,8 +336,23 @@ const getEventsByDate = async (req, res) => {
     res.json(eventosFiltrados);
   } catch (error) {
     console.log(error);
+  }}
+
+//ruta que retorna la cantidad de tikets disponibles por evento
+const getTiketsDisponibles = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const evento = await Event.findByPk(id,{include: [{model: Ticket}]})
+    const tickets = evento.Tickets
+    const ticketsDisponibles = tickets.filter((t) => t.status === "Disponible")
+    res.json(ticketsDisponibles.length);
+  } catch (error) {
+    console.log(error);
   }
-};
+}
+
+
+
 
 module.exports = {
   getAllEvent,
@@ -338,4 +366,5 @@ module.exports = {
   putEvent,
   datesEvent,
   getEventsByDate,
+  getTiketsDisponibles,
 };
