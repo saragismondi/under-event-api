@@ -1,11 +1,5 @@
 const { Router } = require("express");
 
-
-const { putEvent, postEvent, getByTitle, getIdDb, getByState, solocitys, getEventsDb, soloGeneros, getEventsByDate, datesEvent,getTiketsDisponibles  } = require("../controllers/controllersClients");
-
-const { payment } = require("../controllers/Stripe");
-
-
 const {
   putEvent,
   postEvent,
@@ -17,7 +11,10 @@ const {
   soloGeneros,
   getEventsByDate,
   datesEvent,
+  getTiketsDisponibles,
 } = require("../controllers/controllersClients");
+
+const { payment } = require("../controllers/Stripe");
 
 //nueva config de indice de rutas: las de arriba agregue una / al ultimo porfi
 
@@ -29,10 +26,10 @@ router.post("/createEvent/", postEvent);
 router.get("/getTitle", getByTitle);
 router.get("/getStates/", getByState);
 
-router.get("/getDates/", datesEvent );
-router.get("/getTiketsDisponibles/:id", getTiketsDisponibles );
+router.get("/getDates/", datesEvent);
+router.get("/getTiketsDisponibles/:id", getTiketsDisponibles);
 
-// y las rutas de params agregar luego de esta linea en orden descendente de entradas (como esta ahora) 
+// y las rutas de params agregar luego de esta linea en orden descendente de entradas (como esta ahora)
 
 router.post("/payment", payment);
 
