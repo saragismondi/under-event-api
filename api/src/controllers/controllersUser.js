@@ -21,8 +21,7 @@ const postUser = async (req, res) => {
 const getUser = async (req, res) => {
   const { externalId } = req.params;
   try {
-
-//buscar un usuario por externalId e incluir Order y Eventos
+    //buscar un usuario por externalId e incluir Order y Eventos
     const user = await User.findOne({
       where: {
         externalId: externalId,
@@ -36,23 +35,26 @@ const getUser = async (req, res) => {
               include: [
                 {
                   model: Event,
-                  attributes: ["id","title","date","city"],
+                  attributes: ["id", "title", "date", "city"],
                 },
               ],
-              attributes: ["id","status"],
+              attributes: ["id", "status"],
             },
           ],
           attributes: ["status", "date", "totalPrice"],
         },
       ],
-      attributes: ["name", "lastName", "email", "roll", "picture", "city", "state"],
+      attributes: [
+        "name",
+        "lastName",
+        "email",
+        "roll",
+        "picture",
+        "city",
+        "state",
+      ],
     });
     return res.json(user);
-
-
-
-
-
 
     // const user = await User.findOne(
     //   {
@@ -70,17 +72,17 @@ const getUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
   const { externalId } = req.params;
-  const { name, email, role, lastName, picture, city, isBan } = req.body;
+  const { name, email, roll, lastName, picture, city, state } = req.body;
   try {
     const userUpdated = await User.update(
       {
         name,
         email,
-        role,
+        roll,
         lastName,
         picture,
         city,
-        isBan,
+        state,
       },
       {
         where: {

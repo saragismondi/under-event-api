@@ -28,10 +28,9 @@ module.exports = (sequelize) => {
       allowNull: false,
       unique: true,
     },
-    role: {
-      type: DataTypes.ENUM("user", "admin"),
-
-      defaultValue: "user",
+    roll: {
+      type: DataTypes.ENUM("User", "Admin"),
+      defaultValue: "User",
     },
     picture: {
       type: DataTypes.STRING,
@@ -41,7 +40,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    isBan: {
+    state: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
