@@ -1,9 +1,5 @@
 const { Router } = require("express");
 
-
-
-// const { addCart } = require("../controllers/carrito/addCart");
-
 const {
   postUser,
   getUser,
@@ -11,14 +7,20 @@ const {
 } = require("../controllers/controllersUser");
 
 
+const {
+ createOrder
+  
+} = require("../controllers/controllersOrder");
+
 const router = Router();
 
 router.post("/createUser", postUser);
 
-// router.post("/card", addCart);
+ router.post("/newOrder", createOrder);
 
 router.get("/:externalId", getUser);
 router.put("/:externalId", updateUser);
+
 
 
 module.exports = router;
