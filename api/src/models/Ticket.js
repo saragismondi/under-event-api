@@ -10,8 +10,8 @@ module.exports = (sequelize) => {
       allowNull: false,
       primaryKey: true,
     },
-    price: {
-      type: DataTypes.FLOAT,
-    },
+    status: {
+      type: DataTypes.ENUM("Reservado", "Disponible", "Vendido"),
+    }
   });
 };

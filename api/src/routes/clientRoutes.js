@@ -1,6 +1,10 @@
 const { Router } = require("express");
 
+
+const { putEvent, postEvent, getByTitle, getIdDb, getByState, solocitys, getEventsDb, soloGeneros, getEventsByDate, datesEvent,getTiketsDisponibles  } = require("../controllers/controllersClients");
+
 const { payment } = require("../controllers/Stripe");
+
 
 const {
   putEvent,
@@ -24,8 +28,11 @@ router.get("/solocitys/", solocitys);
 router.post("/createEvent/", postEvent);
 router.get("/getTitle", getByTitle);
 router.get("/getStates/", getByState);
-router.get("/getDates/", datesEvent);
-// y las rutas de params agregar luego de esta linea en orden descendente de entradas (como esta ahora)
+
+router.get("/getDates/", datesEvent );
+router.get("/getTiketsDisponibles/:id", getTiketsDisponibles );
+
+// y las rutas de params agregar luego de esta linea en orden descendente de entradas (como esta ahora) 
 
 router.post("/payment", payment);
 
