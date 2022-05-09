@@ -8,33 +8,41 @@ const data = require("../data/data.json");
 //ESTA FUNCION SE UTILIZA UNICAMENTE CUANDO SE INICIA EL SERVIDOR
 const getAllEvent = async () => {
   try {
-    const result = data.map((e) => {
-      return {
-        title: e.title,
-        imagen: e.imagen,
-        city: e.city,
-        place: e.place,
-        description: e.description,
-        genero: e.genero,
-        date: e.date,
-        time: e.time,
-        stock: e.stock,
-        cost: e.cost,
-        month: e.month,
-        lat: e.lat,
-        long: e.long,
-        address: e.address,
-        location: e.location,
-      };
-    });
+    const db = await Event.findAll();
+    if (db.length > 0) return;
+    for (i = 0; i < data.length; i++) {
+      const newData = data[i];
+      const eventDB = await Event.create(newData);
+      let ticketArray = [];
 
-    const cargadb = await Event.bulkCreate(result);
-    // console.log(cargadb);
-    return cargadb;
+      for (j = 0; j < eventDB.stock; j++) {
+        ticketArray.push({
+          status: "Disponible",
+        });
+      }
+      const tickets = await Ticket.bulkCreate(ticketArray);
+      await eventDB.addTicket(tickets);
+    }
   } catch (error) {
     console.log(error);
   }
 };
+
+
+// const getAllEvent = async () => {
+//   try {
+//     const db = await Event.findAll();
+//     if (db.length > 0) return;
+//     for (i = 0; i < data.length; i++) {
+//       const newData = data[i];
+//       const eventDB = await Event.create(newData);
+//       const ticketDB = await Ticket.create({ status: "Disponible" });
+//       eventDB.addTickets(ticketDB);
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 //ESTA FUNCION NOS TRAE TODOS LOS EVENTOS DE LA DB, CUANDO QUERRAMOS PEGARLE A NUESTRO BACK
 const getEventsDb = async (req, res) => {
@@ -351,6 +359,18 @@ const getTiketsDisponibles = async (req, res) => {
   }
 }
 
+//ruta delete 
+const deleteEvent = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const evento = await Event.findByPk(id);
+    await evento.destroy();
+    res.json({ msg: "evento eliminado" });
+  } catch (error) {
+    console.log(error); 
+    res.status(404).json({ msg: "no se pudo eliminar" });
+  }
+}
 
 
 
