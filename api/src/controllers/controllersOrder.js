@@ -42,30 +42,11 @@ const createOrder = async (req, res) => {
   }
 };
 
-/////////////////////////////////////////////////
-const updateOrder = async (req, res) => {
-  const { status, orderId } = req.body;
-  try {
-    const order = await Order.findByPk(orderId);
-    order.status = status;
-    await order.save();
-    res.json({ msg: "Order updated" });
-  } catch (error) {
-    console.log(error);
-  }
-}
  /////////////////////////////////////////////////
- const getOrder = async (req, res) => {
-  const { orderId } = req.params;
-  try {
-    const order = await Order.findByPk(orderId, {
-      include: [{ model: Ticket }, { model: User }],
-    });
-    res.json({ order });
-  } catch (error) {
-    console.log(error);
-  }
-}; 
+
+ // RUTA DE ORDEN POR ID
+ 
+  
 /////////////////////////////////////////////////
   const getOrders = async (req, res) => {
   const { email } = req.params;
@@ -80,23 +61,41 @@ const updateOrder = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-}
-/////////////////////////////////////////////////
-  const updateOrderStripe = async (req, res) => {
-  const { status, orderId } = req.body;
+};
+/////////////RUTA QUE ME DEVUELVE TODAS LAS ORDENES
+const getAllOrders = async (req, res) => {
   try {
-    const order = await Order.findByPk(orderId);
-    order.status = status;
-    await order.save();
-    res.json({ msg: "Order updated" });
+    const orders = await Order.findAll({
+    
+      include: [{ model: Ticket }, { model: User }],
+    });
+    res.json({ orders });
   } catch (error) {
     console.log(error);
   }
 }
+const getOrderById = async (req, res) => {
+  try {
+    const { orderId } = req.params;
+    
+    const order = await Order.findByPk(orderId, {
+      where: {
+        id: orderId,
+      },
+      include: [{ model: Ticket }, { model: User }],
+    });
+    console.log(req.params)
+    res.json({order});
+    console.log(order, "soy la orden")
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 
 module.exports = {
   createOrder,
-  updateOrder,
-  getOrder,
-  getOrders
+  getOrderById,
+  getOrders,
+  getAllOrders,
 };

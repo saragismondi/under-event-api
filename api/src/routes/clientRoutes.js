@@ -12,6 +12,7 @@ const {
   getEventsByDate,
   datesEvent,
   getTiketsDisponibles,
+ 
 } = require("../controllers/controllersClients");
 
 const { payment } = require("../controllers/Stripe");
@@ -27,7 +28,7 @@ router.get("/getTitle", getByTitle);
 router.get("/getStates/", getByState);
 
 router.get("/getDates/", datesEvent);
-router.get("/getTiketsDisponibles/:id", getTiketsDisponibles);
+
 
 // y las rutas de params agregar luego de esta linea en orden descendente de entradas (como esta ahora)
 
@@ -35,6 +36,7 @@ router.post("/payment", payment);
 
 router.put("/putEvent/:id", putEvent);
 router.get("/getEvents/:date", getEventsByDate);
+router.get("/getTiketsDisponibles/:id/", getTiketsDisponibles);
 router.get("/:id", getIdDb);
 
 module.exports = router;
