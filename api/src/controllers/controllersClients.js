@@ -4,7 +4,6 @@ const User = require("../models/User");
 const { Sequelize, Op } = require("sequelize");
 const data = require("../data/data.json");
 
-
 //ESTA FUNCION SE UTILIZA UNICAMENTE CUANDO SE INICIA EL SERVIDOR
 const getAllEvent = async () => {
   try {
@@ -28,27 +27,11 @@ const getAllEvent = async () => {
   }
 };
 
-
-// const getAllEvent = async () => {
-//   try {
-//     const db = await Event.findAll();
-//     if (db.length > 0) return;
-//     for (i = 0; i < data.length; i++) {
-//       const newData = data[i];
-//       const eventDB = await Event.create(newData);
-//       const ticketDB = await Ticket.create({ status: "Disponible" });
-//       eventDB.addTickets(ticketDB);
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
 //ESTA FUNCION NOS TRAE TODOS LOS EVENTOS DE LA DB, CUANDO QUERRAMOS PEGARLE A NUESTRO BACK
 const getEventsDb = async (req, res) => {
   try {
     const db = await Event.findAll();
-       //console.log(db, "hola soy db ")
+    //console.log(db, "hola soy db ")
     if (db.length > 0) return res.send(db);
 
     return res.json({ msg: "No hay eventos en nuestra base de datos" });
@@ -135,26 +118,24 @@ const postEvent = async (req, res) => {
         address,
         location,
       });
-    //   let id_user = await User.findAll({ where: { name: userEmail } });
-    //  await newEvent.addUser(id_user);
+      //   let id_user = await User.findAll({ where: { name: userEmail } });
+      //  await newEvent.addUser(id_user);
 
-      
       let ticketArray = [];
-      for( var i = 0; i < stock; i++ ){
+      for (var i = 0; i < stock; i++) {
         ticketArray.push({
           status: "Disponible",
-        })
-      };
-       const tickets = await Ticket.bulkCreate(ticketArray);
-        await newEvent.addTicket(tickets);
+        });
+      }
+      const tickets = await Ticket.bulkCreate(ticketArray);
+      await newEvent.addTicket(tickets);
 
-      res.json({ msg: " Evento Creado",  newEvent});
+      res.json({ msg: " Evento Creado", newEvent });
     } catch (error) {
       console.log(error);
     }
   }
 };
-
 
 const getByTitle = async (req, res) => {
   let { title } = req.query;
@@ -169,11 +150,6 @@ const getByTitle = async (req, res) => {
         where: {
           title: { [Sequelize.Op.iLike]: `%${title}%` },
         },
-        /*       include: {
-        model: User,
-        attributes: ["name", "lastName", "email", "password", "roll"],
-        through: { attributes: [] },
-      }, */
       });
       return res.json(eventName);
     } catch (error) {
@@ -185,11 +161,6 @@ const getByTitle = async (req, res) => {
         where: {
           genero: { [Sequelize.Op.iLike]: `%${genero}%` },
         },
-        // include: {
-        //   model: User,
-        //   attributes: ["name", "lastName", "email", "password", "roll"],
-        //   through: { attributes: [] },
-        // },
       });
       return res.json(genres);
     } catch (error) {
@@ -201,11 +172,6 @@ const getByTitle = async (req, res) => {
         where: {
           cost: { [Sequelize.Op.iLike]: `%${cost}%` },
         },
-        // include: {
-        //   model: User,
-        //   attributes: ["name", "lastName", "email", "password", "roll"],
-        //   through: { attributes: [] },
-        // },
       });
       return res.json(precio);
     } catch (error) {
@@ -217,11 +183,6 @@ const getByTitle = async (req, res) => {
         where: {
           month: { [Sequelize.Op.iLike]: `%${month}%` },
         },
-        // include: {
-        //   model: User,
-        //   attributes: ["name", "lastName", "email", "password", "roll"],
-        //   through: { attributes: [] },
-        // },
       });
       return res.json(mes);
     } catch (error) {
@@ -233,11 +194,6 @@ const getByTitle = async (req, res) => {
         where: {
           city: { [Sequelize.Op.iLike]: `%${city}%` },
         },
-        // include: {
-        //   model: User,
-        //   attributes: ["name", "lastName", "email", "password", "roll"],
-        //   through: { attributes: [] },
-        // },
       });
       return res.json(ciudad);
     } catch (error) {
@@ -265,17 +221,7 @@ const getByState = async (req, res) => {
 const getIdDb = async (req, res) => {
   const { id } = req.params;
   try {
-    const db = await Event.findByPk(
-      id
-
-      //   {
-      //   include: {
-      //     model: User,
-      //     attributes: ["name", "lastname", "email", "password", "rol"],
-      //     trough: { attributes: [] },
-      //   },
-      // }
-    );
+    const db = await Event.findByPk(id);
     res.json(db);
   } catch (error) {
     console.log(error);
@@ -300,22 +246,22 @@ const putEvent = async (req, res) => {
       address,
       location,
     } = req.body;
-    const db = await Event.findByPk(id)
+    const db = await Event.findByPk(id);
     //console.log(req.body.title)
 
-    if (title) db.title = title
-    if (imagen) db.imagen = imagen
-    if (city) db.city = city
-    if (place) db.place = place
-    if (description) db.description = description
-    if (genero) db.genero = genero
-    if (date) db.date = date
-    if (time) db.time = time
-    if (stock) db.stock = stock
-    if (cost) db.cost = cost
-    if (month) db.month = month
-    if (address) db.address = address
-    if (location) db.location = location
+    if (title) db.title = title;
+    if (imagen) db.imagen = imagen;
+    if (city) db.city = city;
+    if (place) db.place = place;
+    if (description) db.description = description;
+    if (genero) db.genero = genero;
+    if (date) db.date = date;
+    if (time) db.time = time;
+    if (stock) db.stock = stock;
+    if (cost) db.cost = cost;
+    if (month) db.month = month;
+    if (address) db.address = address;
+    if (location) db.location = location;
 
     await db.save();
     res.json(db);
@@ -327,7 +273,7 @@ const putEvent = async (req, res) => {
 const datesEvent = async (req, res) => {
   try {
     const eventosDate = await Event.findAll();
-    const datesFiltrado = eventosDate.map((e) => e.date)
+    const datesFiltrado = eventosDate.map((e) => e.date);
 
     //console.log(eventosDate, "hol soy EVENTOS DATE")
     res.json(datesFiltrado);
@@ -337,29 +283,30 @@ const datesEvent = async (req, res) => {
 };
 const getEventsByDate = async (req, res) => {
   const { date } = req.params;
-  console.log(req.params.date)
+  console.log(req.params.date);
   try {
-    const eventosPorFecha = await Event.findAll()
-    const eventosFiltrados = eventosPorFecha.filter((e) => e.date === date)
+    const eventosPorFecha = await Event.findAll();
+    const eventosFiltrados = eventosPorFecha.filter((e) => e.date === date);
     res.json(eventosFiltrados);
   } catch (error) {
     console.log(error);
-  }}
+  }
+};
 
 //ruta que retorna la cantidad de tikets disponibles por evento
 const getTiketsDisponibles = async (req, res) => {
   const { id } = req.params;
   try {
-    const evento = await Event.findByPk(id,{include: [{model: Ticket}]})
-    const tickets = evento.Tickets
-    const ticketsDisponibles = tickets.filter((t) => t.status === "Disponible")
+    const evento = await Event.findByPk(id, { include: [{ model: Ticket }] });
+    const tickets = evento.Tickets;
+    const ticketsDisponibles = tickets.filter((t) => t.status === "Disponible");
     res.json(ticketsDisponibles.length);
   } catch (error) {
     console.log(error);
   }
-}
+};
 
-//ruta delete 
+//ruta delete
 const deleteEvent = async (req, res) => {
   const { id } = req.params;
   try {
@@ -367,12 +314,10 @@ const deleteEvent = async (req, res) => {
     await evento.destroy();
     res.json({ msg: "evento eliminado" });
   } catch (error) {
-    console.log(error); 
+    console.log(error);
     res.status(404).json({ msg: "no se pudo eliminar" });
   }
-}
-
-
+};
 
 module.exports = {
   getAllEvent,
