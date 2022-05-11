@@ -34,9 +34,9 @@ router.get("/getDates/", datesEvent);
 
 router.post("/payment", payment);
 
-router.put("/putEvent/:id", putEvent);
 router.get("/getEvents/:date", getEventsByDate);
 router.get("/getTiketsDisponibles/:id/", getTiketsDisponibles);
+router.put("/putEvent/:id", putEvent);
 router.get("/:id", getIdDb);
 
 module.exports = router;
