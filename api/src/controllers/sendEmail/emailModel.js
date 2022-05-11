@@ -5,7 +5,7 @@ function emailModel(content){
     const buttonLink=content.buttonLink
     const buttonText=content.buttonText
     const noteMessage=content.noteMessage
-    const logo="https://pbs.twimg.com/profile_images/1316008238874148867/zOChQqR_.jpg"
+    const logo="https://www.experienciasdelavida.com/wp-content/uploads/2019/05/%C2%A1Gracias.png"
     
     
     const email = `
@@ -261,9 +261,9 @@ function emailModel(content){
           <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Lato',sans-serif;" align="left">
             
       <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-        <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px; color: #ecf0f1;">Contact</span></p>
-    <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 14px; line-height: 19.6px; color: #ecf0f1;">Jeremias Jalil</span></p>
-    <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 14px; line-height: 19.6px; color: #ecf0f1;">+543534181697 | jjejalil@gmail.com</span></p>
+        <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px; color: #ecf0f1;">Contact Us</span></p>
+    <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 14px; line-height: 19.6px; color: #ecf0f1;">UNDER EVENT APP</span></p>
+    <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 14px; line-height: 19.6px; color: #ecf0f1;">+543534284707 | under.event@yahoo.com</span></p>
       </div>
           </td>
         </tr>
@@ -298,7 +298,7 @@ function emailModel(content){
           <td style="overflow-wrap:break-word;word-break:break-word;padding:5px 10px 10px;font-family:'Lato',sans-serif;" align="left">
             
       <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-        <p style="line-height: 140%; font-size: 14px;"><span style="font-size: 14px; line-height: 19.6px;"><span style="color: #ecf0f1; font-size: 14px; line-height: 19.6px;"><span style="line-height: 19.6px; font-size: 14px;">JJEJ&copy;&nbsp; All Rights Reserved</span></span></span></p>
+        <p style="line-height: 140%; font-size: 14px;"><span style="font-size: 14px; line-height: 19.6px;"><span style="color: #ecf0f1; font-size: 14px; line-height: 19.6px;"><span style="line-height: 19.6px; font-size: 14px;">UNDER EVENT APP&copy;&nbsp; All Rights Reserved</span></span></span></p>
       </div>
           </td>
         </tr>
