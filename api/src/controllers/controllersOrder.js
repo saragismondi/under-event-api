@@ -91,6 +91,30 @@ const getOrderById = async (req, res) => {
     console.log(error);
   }
 };
+// crear ruta para borrar una orden
+const deleteOrder = async (req, res) => {
+  try {
+    const { orderId } = req.params;
+    const order = await Order.findByPk(orderId);
+    await order.destroy();
+    res.json({ msg: "Orden Eliminada" });
+  } catch (error) {
+    console.log(error);
+  }
+}
+// crear ruta para actualizar una orden
+const updateOrder = async (req, res) => {
+  try {
+    const { orderId } = req.params;
+    const { status } = req.body;
+    const order = await Order.findByPk(orderId);
+    order.status = status;
+    await order.save();
+    res.json({ msg: "Orden Actualizada" });
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 
 module.exports = {
@@ -98,4 +122,6 @@ module.exports = {
   getOrderById,
   getOrders,
   getAllOrders,
+  deleteOrder,
+  updateOrder,
 };

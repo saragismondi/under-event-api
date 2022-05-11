@@ -11,16 +11,16 @@ const {
 
 } = require("../controllers/controllersUser");
 
-const { createOrder,  getOrderById, getOrders, getAllOrders } = require("../controllers/controllersOrder");
+const { createOrder,  getOrderById, getOrders, getAllOrders, deleteOrder, updateOrder } = require("../controllers/controllersOrder");
 
 const router = Router();
 
 router.post("/createUser", postUser);
 router.get("/getAllOrders", getAllOrders);
 router.post("/newOrder", createOrder);
-
-router.get("/getOrder/:orderId",  getOrderById)
-
+router.delete("/deleteOrder/:orderId", deleteOrder);
+router.get("/getOrder/:orderId",  getOrderById);
+router.put("/updateOrder/:orderId", updateOrder);
 router.get("/getOrders/:email", getOrders);
 
 router.get("/:externalId", getUser);

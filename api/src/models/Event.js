@@ -47,9 +47,12 @@ module.exports = (sequelize) => {
     costTwo: {
       type: DataTypes.STRING,
     },
+
+
     month: {
       type: DataTypes.STRING,
     },
+
     //  lat: {
     //   type: DataTypes.FLOAT,
     //   //allowNull: true,
