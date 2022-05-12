@@ -19,10 +19,12 @@ const {
   updateOrder,
 } = require("../controllers/controllersOrder");
 
-const { addReview } = require("../controllers/controllersReviews");
+const { addReview, getReviews, deleteReview } = require("../controllers/controllersReviews");
 
 const router = Router();
 
+router.get("/getReviews/:id/", getReviews);
+router.delete("/deleteReview/:id", deleteReview);
 router.post("/createReview/:id", addReview);
 router.post("/createUser", postUser);
 router.get("/getAllOrders", getAllOrders);

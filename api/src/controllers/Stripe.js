@@ -50,7 +50,13 @@ const payment =  async (req, res) => {
     }
     );
     mailSucces.message = encuentroTickets.map( e => { 
-      return [ "<h3>Evento: </h3>","<h1>" + e.Event.dataValues.title + "</h1>","Fecha: ", e.Event.dataValues.date, "Lugar: ", e.Event.dataValues.location, "Tu entrada: ", e.dataValues.id].join("")}).join("\n") // esto es un enter
+      
+      console.log(e.Event)
+      return [ "<h3>Evento: </h3>" ,"<h1>" + 
+      e.Event.dataValues.title +
+       "</h1>","Fecha: ", e.Event.dataValues.date, 
+       "Lugar: ", e.Event.dataValues.location, 
+       "Tu entrada: ", e.dataValues.id]}).join("\n") // esto es un enter
      
   
     const  encuentroUsuario = await  User.findByPk(order.UserId);
