@@ -8,18 +8,27 @@ const {
   updateUser,
   getAllUsers,
   banUser,
-
 } = require("../controllers/controllersUser");
 
-const { createOrder,  getOrderById, getOrders, getAllOrders, deleteOrder, updateOrder } = require("../controllers/controllersOrder");
+const {
+  createOrder,
+  getOrderById,
+  getOrders,
+  getAllOrders,
+  deleteOrder,
+  updateOrder,
+} = require("../controllers/controllersOrder");
+
+const { addReview } = require("../controllers/controllersReviews");
 
 const router = Router();
 
+router.post("/createReview/:id", addReview);
 router.post("/createUser", postUser);
 router.get("/getAllOrders", getAllOrders);
 router.post("/newOrder", createOrder);
 router.delete("/deleteOrder/:orderId", deleteOrder);
-router.get("/getOrder/:orderId",  getOrderById);
+router.get("/getOrder/:orderId", getOrderById);
 router.put("/updateOrder/:orderId", updateOrder);
 router.get("/getOrders/:email", getOrders);
 

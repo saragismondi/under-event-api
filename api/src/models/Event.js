@@ -47,8 +47,6 @@ module.exports = (sequelize) => {
     costTwo: {
       type: DataTypes.STRING,
     },
-
-
     month: {
       type: DataTypes.STRING,
     },
