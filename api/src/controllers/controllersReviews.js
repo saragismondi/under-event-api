@@ -4,74 +4,80 @@ const addReview = async (req, res) => {
   const { description, rating, email } = req.body;
   const { id } = req.params;
   try {
-    const getUserId = await User.findOne({
-      where: {
-        email: email,
-      },
-      //   attributes: ["id"],
+    const encuentroEvento = await Event.findByPk(id);
+    const encuentroUsuario = await User.findOne({
+      where: { email },
     });
-
-    console.log(getUserId, "Holaaaaaaaaa soy userid");
-    const orders = await Order.findAll({
-      where: {
-        status: ["Approved"], //esto iría en completed pero esta en buying para testear
-        UserId: getUserId?.dataValues.id,
-      },
-      include: [
-        { model: User, attributes: ["name", "lastName", "email"] },
-        { model: Event, attributes: ["title", "id"] },
-      ],
-    });
-    console.log(orders, "SOY LA ORDEN!!!!");
-    const eventos = await Event.findOne({
-      where: {
-        id: id,
+    //console.log(encuentroUsuario, "hola soy el usuario")
+    const encuentroOrden = await Order.findOne({
+          where: {
+        UserId: encuentroUsuario.id,
+        status: "Rejected", // aca para probar tengo que poner "PENDING ", LUEGO PASAR AAPROBED 
       },
     });
-    // console.log(excursion?.dataValues?.name, "EEEEEEEEEEEEEEEEEEEEEEEEE");
-
-    let orderEvents = orders?.map((e) => e.events);
-    let ticketComprado = orderEvents?.map((e) => e?.dataValues.title);
-
-    // console.log(buyedExcursion, "probando buyedExcursion name???");
-    const controlReview = await Reviews.findAll({
-      where: {
-        EventId: id,
-      },
-    });
-
-    // console.log(controlReview.map((e)=>e.userId), "AAAAAAA")
-
-    if (
-      controlReview?.map((e) => e.UserId).includes(getUserId?.dataValues?.id)
-    ) {
-      return res.status(200).send("Ya diste tu opinión");
-    }
-
-    if (ticketComprado?.includes(eventos?.dataValues?.title)) {
-      const reviewCreada = await Reviews.create({
-        description: description,
-        rating: rating,
-        UserId: getUserId?.dataValues.id,
-        EventId: id,
+    if (encuentroOrden) {
+      const review = await Reviews.create({
+        description,
+        rating,
+        UserId: encuentroUsuario.id,
+        EventId: encuentroEvento.id,
       });
-      //   const response = await Reviews.findAll({
-      //     //posibilidad de mandar como respuesta directamente el array de opiniones
-      //     where: {
-      //       EventId: id,
-      //     },
-      //     include: [{ model: User, attributes: ["name", "lastName"] }],
-      //   });
-      //   return res.status(201).send(response); //en caso de no usar "response" cambiar el mensaje en el .send y comentar las lineas 57-64
-      return res.json({ msg: "Review creada con exito", reviewCreada });
+       //console.log(review, "hola soy la review")
+      return res.status(200).json(review);
     } else {
-      return res
-        .status(200)
-        .send("Debes comprar la excursión para dar una opinión");
+      return res.json({
+        message: "No puede hacer una review a un evento al cual usted no ha asistido",
+      });
     }
   } catch (error) {
     console.log(error);
   }
 };
+ ////////////////////////////////////////////////////////////////////
+const getReviews = async (req, res) => {
+  const { id } = req.params;
 
-module.exports = { addReview };
+  try {
+    const encuentroEvento = await Event.findByPk(id);
+    //console.log(encuentroEvento, "HOLA SOY EL EVENTO")
+    const encuentroReviews = await Reviews.findAll({
+      where: {
+
+        EventId: encuentroEvento.id,
+      },
+      include:    [
+        {
+          model: User,
+
+          attributes: ["name", "lastName", "email"],
+       
+        },
+      ],
+    });
+    //console.log(encuentroReviews, "HOLA SOY LAS REVIEWS")
+
+    return res.json(encuentroReviews);
+
+  } catch (error) {
+    console.log(error);
+  }
+};
+////////////////////////////////////////////////////////////////////
+
+const deleteReview = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const encuentroReview = await Reviews.findByPk(id);
+
+
+  await encuentroReview.destroy();
+
+    return res.json({
+      message: "Review eliminada",
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}; 
+module.exports = { addReview, getReviews, deleteReview };
