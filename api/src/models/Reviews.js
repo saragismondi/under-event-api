@@ -3,6 +3,10 @@ module.exports = (sequelize) => {
   sequelize.define(
     "Reviews",
     {
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       date: {
         type: DataTypes.DATEONLY,
         allowNull: false,

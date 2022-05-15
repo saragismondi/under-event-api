@@ -1,6 +1,5 @@
 const axios = require("axios");
-const { Event, Ticket, Order } = require("../db");
-const User = require("../models/User");
+const { Event, Ticket, User } = require("../db");
 const { Sequelize, Op } = require("sequelize");
 const data = require("../data/data.json");
 
@@ -78,10 +77,11 @@ const postEvent = async (req, res) => {
     time,
     stock,
     cost,
+    costTwo,
     month,
     address,
     location,
-    userEmail,
+    externalId,
   } = req.body;
 
   if (
@@ -97,8 +97,7 @@ const postEvent = async (req, res) => {
     !cost ||
     !month ||
     !address ||
-    !location ||
-    !userEmail
+    !location
   ) {
     return res.status(404).json({ msg: "Info are required" });
   } else {
@@ -114,12 +113,17 @@ const postEvent = async (req, res) => {
         time,
         stock,
         cost,
+        costTwo,
         month,
         address,
         location,
       });
-      //   let id_user = await User.findAll({ where: { name: userEmail } });
-      //  await newEvent.addUser(id_user);
+      //console.log(newEvent, "SOY EL EVENTOP");
+      //const user = await User.findOne({
+      //where: { externalId: externalId },
+      //});
+      //console.log(user, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+      //await newEvent.addUser(user);
 
       let ticketArray = [];
       for (var i = 0; i < stock; i++) {
