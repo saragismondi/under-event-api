@@ -12,7 +12,6 @@ const {
   getEventsByDate,
   datesEvent,
   getTiketsDisponibles,
- 
 } = require("../controllers/controllersClients");
 
 const { payment } = require("../controllers/Stripe");
@@ -20,6 +19,8 @@ const { payment } = require("../controllers/Stripe");
 //nueva config de indice de rutas: las de arriba agregue una / al ultimo porfi
 
 const router = Router();
+
+router.get("/getTiketsDisponibles/:id/", getTiketsDisponibles);
 router.get("/sologeneros/", soloGeneros);
 router.get("/getAll/", getEventsDb);
 router.get("/solocitys/", solocitys);
@@ -29,13 +30,11 @@ router.get("/getStates/", getByState);
 
 router.get("/getDates/", datesEvent);
 
-
 // y las rutas de params agregar luego de esta linea en orden descendente de entradas (como esta ahora)
 
 router.post("/payment", payment);
 
 router.get("/getEvents/:date", getEventsByDate);
-router.get("/getTiketsDisponibles/:id/", getTiketsDisponibles);
 router.put("/putEvent/:id", putEvent);
 router.get("/:id", getIdDb);
 
