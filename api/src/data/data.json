@@ -13,8 +13,8 @@
     "cost": "200",
     "costTwo": "500",
     "month": "Junio",
-    "lat": -49.34,
-    "long": -72.33,
+    "lat": -34.58367291993939, 
+    "long": -58.43871884386486,
     "address": "Gorriti 5740, C1414 BKH",
     "location": "San Martin "
   },
@@ -22,7 +22,7 @@
     "title": "La Renga",
     "imagen": "https://resizer.glanacion.com/resizer/zp3wrQcrE1DWambgFVZ-_P025iA=/1200x746/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/FJC4KTOFHRHSTJU2IYTVIUWBJ4.jpg",
     "city": "Buenos Aires",
-    "place": "La chacra rock",
+    "place": "Espacio Cultura Despierta",
     "description": "En esta oportunidad se presentan los rockeros para mostrar su nuevo disco (Sangre y Poder) y esperan festejar con su publico el nuevo año, se ofreceran autografos y habra fotografia gratis para todos los que asistan al evento.",
     "genero": "Rock Nacional",
     "date": "2-05-2022",
@@ -32,16 +32,16 @@
     "cost": "250",
     "costTwo": "650",
     "month": "Mayo",
-    "lat": -49.34,
-    "long": -72.33,
+    "lat": -34.58115468414135, 
+    "long": -58.45123187794079,
     "address": "Amstel 1199",
-    "location": "Villa Maria"
+    "location": "Villa Marieta"
   },
   {
     "title": "Bulldog",
     "imagen": "https://scontent.frcu1-1.fna.fbcdn.net/v/t39.30808-6/250631293_450629936429210_5663647340254743360_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=e3f864&_nc_ohc=X__5MQa-mXIAX-3SL5g&_nc_ht=scontent.frcu1-1.fna&oh=00_AT-9BbUATqM8n-8xUSpqVZJX_jDiObZ8NiKveBIWgIK2ag&oe=627661F8",
     "city": "Buenos Aires",
-    "place": "Palermo Groove",
+    "place": "Simona Groove Cultural",
     "description": "En Palermo se reuniran los rockeros a recordar sus ultimas canciones populares, habra tragos, cervezas artesanales y filmaran todo el eventos para la realizacion de posteriores videoclips",
     "genero": "Rock Nacional",
     "date": "11-05-2022",
@@ -51,16 +51,16 @@
     "cost": "380",
     "costTwo": "700",
     "month": "Mayo", 
-    "lat": -49.34,
-    "long": -72.33,
+    "lat": -34.579988680581714, 
+    "long": -58.45162884486944,
     "address": "Belgrano 887",
-    "location": "Villa Nueva"
+    "location": "Villa Nuevina"
   },
   {
     "title": "Masacre",
     "imagen": "https://www.cmtv.com.ar/imagenes_noticias/0775306001593731402.jpg?Massacre&Recordamos%20momentos%20junto%20a%20la%20banda%20a%20lo%20largo%20de%20su%20carrera.jpg",
-    "city": "Buenos Aires",
-    "place": "La cajita musical",
+    "city": "Santa Fe",
+    "place": "Centro Cultural ATE Casa España",
     "description": "En esta oportunidad se presentan los rockeros para mostrar su nuevo disco (Sangre y Poder) y esperan festejar con su publico el nuevo año, se ofreceran autografos y habra fotografia gratis para todos los que asistan al evento.",
     "genero": "Rock Nacional",
     "date": "2-07-2022",
@@ -70,14 +70,14 @@
     "cost": "315",
     "costTwo": "480",
     "month": "Julio", 
-    "lat": -49.34,
-    "long": -72.33,
+    "lat": -31.641718428800797,
+    "long":  -60.70346784913519,
     "address": "Intendencia 1234",
-    "location": "Bell Ville"
+    "location": "Santa Fe"
   },
   {
     "title": "Miranda",
-    "imagen": "https://www.cmtv.com.ar/imagenes_noticias/0775306001593731402.jpg?Massacre&Recordamos%20momentos%20junto%20a%20la%20banda%20a%20lo%20largo%20de%20su%20carrera.jpg",
+    "imagen": "https://colectivosonoro.com/wp-content/uploads/2022/03/miranda-el-arte-de-mirarte.jpg",
     "city": "Cordoba Capital",
     "place": "Club Paraguay",
     "description": "El mejor eventos de musica pop-under para disfrutar con tus amigues, por la tarde estaremos en club paraguay acercandonos a nuestros fans y por la noche disfrutaremos de una fiesta de puro pop nacional.",
@@ -89,10 +89,10 @@
     "cost": "400",
     "costTwo": "850",
     "month": "Julio", 
-    "lat": -49.34,
-    "long": -72.33,
+    "lat": -31.422041316510313, 
+    "long": -64.19242493975968,
     "address": "Amateur 4469",
-    "location": "Carrilobo"
+    "location": "Carrilobo CBA"
   },
   {
     "title": "Gondwana",
@@ -108,10 +108,10 @@
     "cost": "320",
     "costTwo": "500",
     "month": "Agosto", 
-    "lat": -49.34,
-    "long": -72.33,
+    "lat": -31.4445462552708, 
+    "long": -64.19559027472815,
     "address": "Salta 1919",
-    "location": "Capilla del Monte"
+    "location": "Cordoba Capital"
   },
   {
     "title": "Karamelo Santo",
@@ -127,10 +127,10 @@
     "cost": "450",
     "costTwo": "700",
     "month": "Diciembre", 
-    "lat": -49.34,
-    "long": -72.33,
-    "address": "Marianni 1946",
-    "location": "Rio Cuarto"
+    "lat": -31.403300861000872, 
+    "long": -64.1815840681258,
+    "address": "Blvd. Las Heras 124",
+    "location": "Cordoba Capital"
   },
   {
     "title": "Barak",
@@ -146,15 +146,15 @@
     "cost": "280",
     "costTwo": "420",
     "month": "Abril", 
-    "lat": -49.34,
-    "long": -72.33,
+    "lat": -34.55926233246937, 
+    "long": -58.50820878630112,
     "address": "Vigotti 1420",
     "location": "Canals"
   },
   {
     "title": "NONPALIDECE",
     "imagen": "https://www.cmtv.com.ar/tapas-cd/0269357001633107236.jpg",
-    "city": "Buenos Aires",
+    "city": "Mendoza",
     "place": "Estadio Obras Sanitarias",
     "description": "Vuelve el reggae a Obras de la mano de una de las bandas más representativas del género en Latinoamérica.",
     "genero": "Reggae",
@@ -165,16 +165,16 @@
     "cost": "360",
     "costTwo": "600",
     "month": "Junio", 
-    "lat": -49.34,
-    "long": -72.33,
-    "address": "Ricardo Darin 1246",
-    "location": "Alta Gracia"
+    "lat": -32.864328324452984, 
+    "long": -68.83694666829649,
+    "address": "Damián Hudson 250",
+    "location": "Mendoza Capital"
   },
   {
     "title": "REGGAE COMBATIVO",
     "imagen": "https://yt3.ggpht.com/ytc/AKedOLQ21rOplw0d2hNVMXHlj0oCYwwQcDIkrY3u-oZ2Zg=s900-c-k-c0x00ffffff-no-rj",
     "city": "Mar del Plata",
-    "place": " Espacio Cultural Belgrano",
+    "place": "Centro Cultural Julio Cortazar",
     "description": "La banda de Luis Alfa vuelve al mar del plata en una noche de puro reggae combativo.",
     "genero": "Reggae",
     "date": "24-06-2022",
@@ -184,16 +184,16 @@
     "cost": "450",
     "costTwo": "850",
     "month": "Junio", 
-    "lat": -49.34,
-    "long": -72.33,
+    "lat": -37.99910945951211, 
+    "long": -57.554873906710434,
     "address": "Armando Barredas 66",
     "location": "Almafuerte"
   },
   {
     "title": "No te va a gustar",
     "imagen": "https://images.sk-static.com/images/media/profile_images/artists/162578/huge_avatar",
-    "city": "Cordoba",
-    "place": "La Cantera Multiespacio",
+    "city": "San Luis",
+    "place": "Centro Cultural Puente Blanco",
     "description": "Vuelve el Rock de la mano de una de las bandas más representativas del género en Latinoamérica.",
     "genero": "Rock",
     "date": "05-08-2022",
@@ -203,9 +203,9 @@
     "cost": "380",
     "costTwo": "1000",
     "month": "Agosto", 
-    "lat": -49.34,
-    "long": -72.33,
-    "address": "Dario Norgues 1188",
+    "lat": -33.29141839773847, 
+    "long": -66.3092968983377,
+    "address": "Av. del Fundador, D5700 San Luis",
     "location": "Alcira Gigena"
   },
   {
@@ -221,10 +221,30 @@
     "stock": 90,
     "cost": "350",
     "costTwo": "500",
-    "month": "Noviembre", 
-    "lat": -49.34,
-    "long": -72.33,
-    "address": "Marcela Tinelli 1990",
-    "location": "Tercero Arriba"
-  }
+    "month": "Noviembre",
+    "lat": -34.60640169886207, 
+    "long": -58.410577116991874,
+    "address": "Sarmiento 3131",
+    "location": "CABA"
+  },
+  {
+        
+    "title": "La Sara tiene cara de sapo",
+    "imagen": "https://resizer.glanacion.com/resizer/zp3wrQcrE1DWambgFVZ-_P025iA=/1200x746/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/FJC4KTOFHRHSTJU2IYTVIUWBJ4.jpg",
+    "city": "Neuquen",
+    "place": "Espacio Kultural La Moza Rosketa",
+    "description": "En esta oportunidad se presentan los rockeros para mostrar su nuevo disco (Sangre y Poder) y esperan festejar con su publico el nuevo año, se ofreceran autografos y habra fotografia gratis para todos los que asistan al evento.",
+    "genero": "Rock Nacional",
+    "date": "30-05-1985",
+    "time": "21:00 ",
+    "stock": 200,
+    "cost": "320",
+    "costTwo": "700",
+    "month": "Mayo",
+    "lat": -38.94001054640466, 
+    "long": -68.09929048770755,
+    "address": "Amstel 1199",
+    "location": "Villa Residencial"
+    
+ }
 ]

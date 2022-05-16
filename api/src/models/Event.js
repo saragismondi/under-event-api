@@ -50,7 +50,6 @@ module.exports = (sequelize) => {
     month: {
       type: DataTypes.STRING,
     },
-
     lat: {
       type: DataTypes.FLOAT,
       //allowNull: true,

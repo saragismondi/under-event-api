@@ -42,6 +42,22 @@ const payment = async (req, res) => {
     await encuentroTickets.forEach(async (ticket) => {
       ticket.status = "Vendido";
       await ticket.save();
+
+    }
+    );
+     /// email formato 
+    
+    mailSucces.message = encuentroTickets.map( e => { 
+      
+      console.log(e.Event)
+      return [ "<h3>Evento: </h3>" ,"<h1>" + 
+      e.Event.dataValues.title +
+       "</h1>","Fecha: ", e.Event.dataValues.date, 
+       "Lugar: ", e.Event.dataValues.location, 
+       "Tu entrada: ", e.dataValues.id]}).join("\n") // esto es un enter
+     
+  
+    const  encuentroUsuario = await  User.findByPk(order.UserId)
     });
     mailSucces.message = encuentroTickets
       .map((e) => {
