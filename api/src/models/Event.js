@@ -65,5 +65,9 @@ module.exports = (sequelize) => {
     location: {
       type: DataTypes.STRING,
     },
+    isActive: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
   });
 };

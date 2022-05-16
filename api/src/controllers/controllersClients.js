@@ -10,6 +10,7 @@ const getAllEvent = async () => {
     if (db.length > 0) return;
     for (i = 0; i < data.length; i++) {
       const newData = data[i];
+
       const eventDB = await Event.create(newData);
       let ticketArray = [];
 
