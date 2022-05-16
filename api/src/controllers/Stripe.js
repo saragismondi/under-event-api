@@ -49,6 +49,8 @@ const payment =  async (req, res) => {
       await ticket.save();
     }
     );
+     /// email formato 
+    
     mailSucces.message = encuentroTickets.map( e => { 
       
       console.log(e.Event)

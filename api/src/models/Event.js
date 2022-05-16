@@ -50,15 +50,14 @@ module.exports = (sequelize) => {
     month: {
       type: DataTypes.STRING,
     },
-
-    //  lat: {
-    //   type: DataTypes.FLOAT,
-    //   //allowNull: true,
-    // },
-    // long: {
-    //   type: DataTypes.FLOAT,
-    //   //allowNull: true,
-    // },
+     lat: {
+      type: DataTypes.FLOAT,
+      //allowNull: true,
+    },
+    long: {
+      type: DataTypes.FLOAT,
+      //allowNull: true,
+    },
     address: {
       type: DataTypes.STRING,
     },
