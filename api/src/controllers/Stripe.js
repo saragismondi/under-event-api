@@ -23,7 +23,11 @@ const payment = async (req, res) => {
   try {
     await Stripe.charges.create({
       source: token.id,
+<<<<<<< HEAD
       amount: amount * 100,
+=======
+      amount,
+>>>>>>> dev
       currency: "usd",
     });
     //encuentro orden POR ID
@@ -100,4 +104,8 @@ const payment = async (req, res) => {
 // ESTA RUT SIEMPRE RESPONDE 200 PERO NECESITAMOS VERIFICAR QUE DIGA SUCCES QUE ESTA DENTRO DE DATA
 // CONSOLOGUEAR DESDE EL FRONT EL RESULT
 
+<<<<<<< HEAD
 module.exports = { payment };
+=======
+module.exports = { payment };
+>>>>>>> dev
