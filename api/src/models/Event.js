@@ -51,19 +51,23 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
     },
 
-    //  lat: {
-    //   type: DataTypes.FLOAT,
-    //   //allowNull: true,
-    // },
-    // long: {
-    //   type: DataTypes.FLOAT,
-    //   //allowNull: true,
-    // },
+    lat: {
+      type: DataTypes.FLOAT,
+      allowNull: true,
+    },
+    long: {
+      type: DataTypes.FLOAT,
+      allowNull: true,
+    },
     address: {
       type: DataTypes.STRING,
     },
     location: {
       type: DataTypes.STRING,
+    },
+    isActive: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
     },
   });
 };
