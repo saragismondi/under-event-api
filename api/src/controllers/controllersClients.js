@@ -11,6 +11,7 @@ const getAllEvent = async () => {
     if (db.length > 0) return;
     for (i = 0; i < data.length; i++) {
       const newData = data[i];
+
       const eventDB = await Event.create(newData);
       let ticketArray = [];
 
@@ -118,8 +119,11 @@ const postEvent = async (req, res) => {
         address,
         location,
       });
-      //   let id_user = await User.findAll({ where: { name: userEmail } });
-      //  await newEvent.addUser(id_user);
+
+      console.log(userEmail);
+      let id_user = await User.findAll({ where: { name: userEmail } });
+      console.log(id_user);
+      await newEvent.addUser(id_user);
 
       let ticketArray = [];
       for (var i = 0; i < stock; i++) {
