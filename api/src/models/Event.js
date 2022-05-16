@@ -50,7 +50,7 @@ module.exports = (sequelize) => {
     month: {
       type: DataTypes.STRING,
     },
-     lat: {
+    lat: {
       type: DataTypes.FLOAT,
       //allowNull: true,
     },
@@ -63,6 +63,10 @@ module.exports = (sequelize) => {
     },
     location: {
       type: DataTypes.STRING,
+    },
+    isActive: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
     },
   });
 };
