@@ -65,18 +65,16 @@ const getReviews = async (req, res) => {
   const { id } = req.params;
 
   try {
-    //const encuentroEvento = await Event.findByPk(id);
+    const encuentroEvento = await Event.findByPk(id);
     //console.log(encuentroEvento, "HOLA SOY EL EVENTO")
-    const encuentroReviews = await Event.findByPk(id, {
-      include: {
-        model: Reviews,
-        //attributes: ["name", "description", "rating"],
-        //through: { attributes: [] },
+    const encuentroReviews = await Reviews.findAll({
+      where: {
+        EventId: encuentroEvento.id,
       },
     });
     //console.log(encuentroReviews, "HOLA SOY LAS REVIEWS")
 
-    return res.send(encuentroReviews);
+    return res.json(encuentroReviews);
   } catch (error) {
     console.log(error);
   }
