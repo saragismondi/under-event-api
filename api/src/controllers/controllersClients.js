@@ -3,7 +3,6 @@ const { Event, Ticket, User, Reviews } = require("../db");
 const { Sequelize, Op } = require("sequelize");
 const data = require("../data/data.json");
 
-
 //ESTA FUNCION SE UTILIZA UNICAMENTE CUANDO SE INICIA EL SERVIDOR
 const getAllEvent = async () => {
   try {
@@ -83,6 +82,8 @@ const postEvent = async (req, res) => {
     month,
     address,
     location,
+    lat,
+    long,
     externalId,
   } = req.body;
 
@@ -102,6 +103,8 @@ const postEvent = async (req, res) => {
     !month ||
     !address ||
     !location ||
+    !lat ||
+    !long ||
     !externalId
   ) {
     console.log("error");
@@ -121,6 +124,8 @@ const postEvent = async (req, res) => {
         cost,
         costTwo,
         month,
+        lat,
+        long,
         address,
         location,
       });
@@ -235,8 +240,8 @@ const getIdDb = async (req, res) => {
   try {
     const db = await Event.findByPk(id, {
       include: {
-        model: Reviews
-      }
+        model: Reviews,
+      },
     });
     res.json(db);
   } catch (error) {
