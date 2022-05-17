@@ -86,6 +86,8 @@ const postEvent = async (req, res) => {
     externalId,
   } = req.body;
 
+  console.log(req.body);
+
   if (
     !title ||
     !imagen ||
@@ -99,8 +101,10 @@ const postEvent = async (req, res) => {
     !cost ||
     !month ||
     !address ||
-    !location
+    !location ||
+    !externalId
   ) {
+    console.log("error");
     return res.status(404).json({ msg: "Info are required" });
   } else {
     try {
@@ -121,11 +125,13 @@ const postEvent = async (req, res) => {
         location,
       });
       //console.log(newEvent, "SOY EL EVENTOP");
-      //const user = await User.findOne({
-      //where: { externalId: externalId },
-      //});
-      //console.log(user, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-      //await newEvent.addUser(user);
+      const user = await User.findOne({
+        where: { externalId: externalId },
+      });
+      // await newEvent.addUser(user);
+      await newEvent.update({
+        UserId: user.id,
+      });
 
       let ticketArray = [];
       for (var i = 0; i < stock; i++) {
