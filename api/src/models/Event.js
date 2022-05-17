@@ -52,11 +52,11 @@ module.exports = (sequelize) => {
     },
     lat: {
       type: DataTypes.FLOAT,
-      //allowNull: true,
+      allowNull: true,
     },
     long: {
       type: DataTypes.FLOAT,
-      //allowNull: true,
+      allowNull: true,
     },
     address: {
       type: DataTypes.STRING,
