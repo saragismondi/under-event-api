@@ -1,7 +1,8 @@
 const axios = require("axios");
-const { Event, Ticket, User } = require("../db");
+const { Event, Ticket, User, Reviews } = require("../db");
 const { Sequelize, Op } = require("sequelize");
 const data = require("../data/data.json");
+
 
 //ESTA FUNCION SE UTILIZA UNICAMENTE CUANDO SE INICIA EL SERVIDOR
 const getAllEvent = async () => {
@@ -226,7 +227,11 @@ const getByState = async (req, res) => {
 const getIdDb = async (req, res) => {
   const { id } = req.params;
   try {
-    const db = await Event.findByPk(id);
+    const db = await Event.findByPk(id, {
+      include: {
+        model: Reviews
+      }
+    });
     res.json(db);
   } catch (error) {
     console.log(error);
