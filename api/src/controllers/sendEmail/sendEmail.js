@@ -8,8 +8,8 @@ async function sendEmail(userEmail, content) {
   let transporter = nodemailer.createTransport({
     service: "yahoo",
     auth: {
-      user: "under.event@yahoo.com", // generated ethereal user
-      pass: "jskwweqqvshkicks", // generated ethereal password
+      user: "underevent@yahoo.com", // generated ethereal user
+      pass: "zufdnxbhywqnpthn", // generated ethereal password
     },
     tls: {
       rejectUnauthorized: false,
@@ -17,7 +17,7 @@ async function sendEmail(userEmail, content) {
   });
 
   let info = await transporter.sendMail({
-    from: "under.event@yahoo.com", // sender address
+    from: "underevent@yahoo.com", // sender address
     to: userEmail, // list of receivers
     subject: `Notificacion de tu compra UnderEventApp`, // Subject line
     text: "Compra UnderEventApp", // plain text body
