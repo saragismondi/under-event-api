@@ -271,13 +271,11 @@ const putEvent = async (req, res) => {
     // if (address) db.address = address;
     // if (location) db.location = location;
 
+    console.log(id);
+
     const event = await Event.update(
       {
-        title,
-        city,
-        date,
-        stock,
-        cost,
+        ...req.body,
       },
       {
         where: {
