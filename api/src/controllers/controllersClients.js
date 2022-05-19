@@ -252,40 +252,42 @@ const getIdDb = async (req, res) => {
 const putEvent = async (req, res) => {
   try {
     const { id } = req.params;
-    const {
-      title,
-      imagen,
-      city,
-      place,
-      description,
-      genero,
-      date,
-      time,
-      stock,
-      cost,
-      month,
-      address,
-      location,
-    } = req.body;
-    const db = await Event.findByPk(id);
+    const { title, city, date, stock, cost } = req.body;
+
+    //const db = await Event.findByPk(id);
     //console.log(req.body.title)
 
-    if (title) db.title = title;
-    if (imagen) db.imagen = imagen;
-    if (city) db.city = city;
-    if (place) db.place = place;
-    if (description) db.description = description;
-    if (genero) db.genero = genero;
-    if (date) db.date = date;
-    if (time) db.time = time;
-    if (stock) db.stock = stock;
-    if (cost) db.cost = cost;
-    if (month) db.month = month;
-    if (address) db.address = address;
-    if (location) db.location = location;
+    // if (title) db.title = title;
+    // if (imagen) db.imagen = imagen;
+    // if (city) db.city = city;
+    // if (place) db.place = place;
+    // if (description) db.description = description;
+    // if (genero) db.genero = genero;
+    // if (date) db.date = date;
+    // if (time) db.time = time;
+    // if (stock) db.stock = stock;
+    // if (cost) db.cost = cost;
+    // if (month) db.month = month;
+    // if (address) db.address = address;
+    // if (location) db.location = location;
 
-    await db.save();
-    res.json(db);
+    const event = await Event.update(
+      {
+        title,
+        city,
+        date,
+        stock,
+        cost,
+      },
+      {
+        where: {
+          id,
+        },
+      }
+    );
+
+    // await db.save();
+    res.json(event);
   } catch (error) {
     console.log(error);
     res.status(404).json({ msg: "no hubo actualizacion" });
@@ -340,6 +342,23 @@ const deleteEvent = async (req, res) => {
   }
 };
 
+const eventClient = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const db = await Event.findAll({
+      include: {
+        model: User,
+        where: {
+          id: id,
+        },
+      },
+    });
+    res.json(db);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   getAllEvent,
   getEventsDb,
@@ -353,4 +372,5 @@ module.exports = {
   datesEvent,
   getEventsByDate,
   getTiketsDisponibles,
+  eventClient,
 };

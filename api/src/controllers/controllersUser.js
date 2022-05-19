@@ -45,6 +45,7 @@ const getUser = async (req, res) => {
         },
       ],
       attributes: [
+        "id",
         "name",
         "lastName",
         "email",
