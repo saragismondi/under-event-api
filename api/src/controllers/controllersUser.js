@@ -52,7 +52,7 @@ const getUser = async (req, res) => {
         "roll",
         "picture",
         "city",
-        "state",
+        "province",
       ],
     });
     return res.json(user);
@@ -73,7 +73,7 @@ const getUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
   const { externalId } = req.params;
-  const { name, email, roll, lastName, picture, city, state } = req.body;
+  const { name, email, roll, lastName, picture, city, province } = req.body;
   try {
     const userUpdated = await User.update(
       {
@@ -83,7 +83,7 @@ const updateUser = async (req, res) => {
         lastName,
         picture,
         city,
-        state,
+        province,
       },
       {
         where: {
