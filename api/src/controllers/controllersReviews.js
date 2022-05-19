@@ -35,16 +35,16 @@ const { User, Reviews, Event, Order } = require("../db");
 //   }
 // };
 const addReview = async (req, res) => {
-  const { name, description, rating } = req.body;
+  const { name, description } = req.body;
   const { id } = req.params;
   try {
-    if (!name || !description || !rating) {
+    if (!name || !description ) {
       return res.status(404).json({ msg: "Complete los campos requeridos" });
     } else {
       const neww = await Reviews.create({
         name,
         description,
-        rating,
+       
       });
       const encuentro = await Event.findByPk(id);
       await encuentro.addReviews(neww);
