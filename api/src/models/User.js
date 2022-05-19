@@ -40,6 +40,10 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: true,
     },
+    province: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     state: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
